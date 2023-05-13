@@ -1,0 +1,57 @@
+{
+  "name": "graphiql-app-rs-react-2023-q1",
+  "author": "Pavel Bodal, Aleksandr Teslin, Galina Hadatovich",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run lint:check && tsc && vite build",
+    "lint": "eslint ./src --ext .ts,.tsx --ignore-path ./.gitignore --max-warnings=0 --fix",
+    "lint:format": "prettier  --loglevel warn --write \"./**/*.(ts|tsx|scss|css|json|md)\" --ignore-path ./.gitignore",
+    "lint:check": "npm run lint && prettier --check . --ignore-path ./.gitignore",
+    "preview": "vite preview",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.(ts|tsx)": [
+      "npm run lint"
+    ],
+    "*.(ts|tsx|scss|css|json|md)": [
+      "npm run lint:format"
+    ]
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@fontsource/inter": "^4.5.15",
+    "@mantine/core": "^6.0.10",
+    "@mantine/hooks": "^6.0.10",
+    "@tabler/icons-react": "^2.18.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/node": "^20.1.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-checker": "^0.6.0",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
+  }
+}
