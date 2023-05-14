@@ -1,13 +1,24 @@
 import { MantineThemeOverride } from '@mantine/core';
 
-const baseColors = {
-  white: '#FFFFFF',
-  black: '#232134',
-  background: '#F7F7F8',
-};
-
 export const theme: MantineThemeOverride = {
   fontFamily: `'Inter', sans-serif`,
-  white: baseColors.white,
-  black: baseColors.black,
+  primaryColor: 'cyan',
+  components: {
+    AppShell: {
+      styles: {
+        root: {
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        body: {
+          flexGrow: 1,
+        },
+        main: {
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
+      },
+    },
+  },
 };

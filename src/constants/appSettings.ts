@@ -2,7 +2,7 @@ export const PAGES = {
   MAIN: {
     ID: 1,
     ROUTE: '/',
-    TITLE: 'Главная',
+    TITLE: 'Main',
   },
   GRAPHQL: {
     ID: 2,
@@ -12,11 +12,11 @@ export const PAGES = {
   AUTHENTICATION: {
     ID: 3,
     ROUTE: '/auth',
-    TITLE: 'Authentication',
+    TITLE: 'Authentification',
   },
   ERROR: {
     ID: 4,
     ROUTE: '',
-    TITLE: 'Ошибка',
+    TITLE: 'Error',
   },
 };

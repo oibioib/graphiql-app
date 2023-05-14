@@ -1,6 +1,6 @@
-import AuthenticationPage from './AuthenticationPage/AuthenticationPage';
+import AuthentificationPage from './AuthentificationPage/AuthentificationPage';
 import ErrorPage from './ErrorPage/ErrorPage';
 import GraphQlPage from './GraphQlPage/GraphQlPage';
-import MainPage from './MainPage/MainPage';
+import WelcomePage from './WelcomePage/WelcomePage';
 
-export { GraphQlPage, MainPage, ErrorPage, AuthenticationPage };
+export { GraphQlPage, WelcomePage, ErrorPage, AuthentificationPage };

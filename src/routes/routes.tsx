@@ -1,6 +1,6 @@
 import { APP_SETTINGS } from '@constants';
 import { BaseLayout } from '@layouts';
-import { AuthenticationPage, ErrorPage, GraphQlPage, MainPage } from '@pages';
+import { AuthentificationPage, ErrorPage, GraphQlPage, WelcomePage } from '@pages';
 
 const routes = [
   {
@@ -10,7 +10,7 @@ const routes = [
     children: [
       {
         path: '',
-        element: <MainPage />,
+        element: <WelcomePage />,
       },
       {
         path: APP_SETTINGS.PAGES.GRAPHQL.ROUTE,
@@ -18,7 +18,7 @@ const routes = [
       },
       {
         path: APP_SETTINGS.PAGES.AUTHENTICATION.ROUTE,
-        element: <AuthenticationPage />,
+        element: <AuthentificationPage />,
       },
     ],
   },

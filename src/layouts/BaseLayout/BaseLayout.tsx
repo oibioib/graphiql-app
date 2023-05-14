@@ -1,13 +1,25 @@
 import { Outlet } from 'react-router-dom';
 
 import { Footer, Header } from '@layouts';
-import { AppShell } from '@mantine/core';
+import { AppShell, Box, Container, createStyles } from '@mantine/core';
+
+const useStyles = createStyles({
+  container: {
+    flexGrow: 1,
+    height: '100%',
+  },
+});
 
 const BaseLayout = () => {
+  const { classes } = useStyles();
   return (
-    <AppShell padding="md" header={<Header />} footer={<Footer />}>
-      <Outlet />
-    </AppShell>
+    <Box h="100vh">
+      <AppShell header={<Header />} footer={<Footer />} fixed={false}>
+        <Container size="xl" className={classes.container}>
+          <Outlet />
+        </Container>
+      </AppShell>
+    </Box>
   );
 };
 
