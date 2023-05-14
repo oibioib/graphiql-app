@@ -96,7 +96,7 @@ const AuthentificationPage = () => {
               placeholder="Your password"
               mt="md"
             />
-            <Button fullWidth mt="xl" type="submit">
+            <Button fullWidth mt="xl" type="submit" disabled={!form.isValid()}>
               Sign in
             </Button>
           </form>
