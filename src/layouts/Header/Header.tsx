@@ -12,7 +12,7 @@ import {
 } from '@mantine/core';
 import { IconMoon, IconSun } from '@tabler/icons-react';
 
-const useBaseLayoutStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme) => ({
   header: {
     transition: '0.3s',
   },
@@ -25,7 +25,7 @@ const useBaseLayoutStyles = createStyles((theme) => ({
 }));
 
 const Header = () => {
-  const { classes, cx } = useBaseLayoutStyles();
+  const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const [language, toggleLanguage] = useAppLanguage();
   const scrolled = useAppScroll();

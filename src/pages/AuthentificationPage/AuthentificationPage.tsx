@@ -11,7 +11,7 @@ import {
 } from '@mantine/core';
 import { isEmail, useForm } from '@mantine/form';
 
-export function AuthentificationPage() {
+const AuthentificationPage = () => {
   const form = useForm({
     initialValues: {
       email: '',
@@ -61,6 +61,6 @@ export function AuthentificationPage() {
       </Container>
     </Flex>
   );
-}
+};
 
 export default AuthentificationPage;
