@@ -8,6 +8,7 @@ import {
   PasswordInput,
   Text,
   TextInput,
+  createStyles,
 } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
 import { z } from 'zod';
@@ -43,7 +44,26 @@ const schema = z.object({
   }),
 });
 
+const useStyles = createStyles((theme) => {
+  const validColor = theme.colors.green[6];
+
+  return {
+    valid: {
+      borderColor: validColor,
+
+      ['&:focus-within']: {
+        borderColor: validColor,
+      },
+
+      ['&:active']: {
+        borderColor: validColor,
+      },
+    },
+  };
+});
+
 const AuthentificationPage = () => {
+  const { classes, cx } = useStyles();
   const form = useForm({
     validateInputOnChange: true,
     validate: zodResolver(schema),
@@ -65,11 +85,13 @@ const AuthentificationPage = () => {
           >
             <TextInput
               {...form.getInputProps('email')}
+              classNames={{ input: cx({ [classes.valid]: form.isValid('email') }) }}
               label="Email"
               placeholder="email@liame.com"
             />
             <PasswordInput
               {...form.getInputProps('password')}
+              classNames={{ input: cx({ [classes.valid]: form.isValid('password') }) }}
               label="Password"
               placeholder="Your password"
               mt="md"
