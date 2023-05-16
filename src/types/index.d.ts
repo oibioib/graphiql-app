@@ -1,0 +1,1 @@
+type AppLanguage = 'EN' | 'RU';
