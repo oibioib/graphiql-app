@@ -1,5 +1,6 @@
 import { STORAGE_SETTINGS } from '@constants';
 import { useLocalStorage } from '@mantine/hooks';
+import { AppLanguage } from '@types';
 
 type UseAppLanguage = [language: AppLanguage, toggleLanguage: (language?: AppLanguage) => void];
 
