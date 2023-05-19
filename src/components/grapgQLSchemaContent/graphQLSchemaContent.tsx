@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import { GraphQLSchemaJsToTS } from '@types';
-import { GraphQLObjectType } from 'graphql/type/definition';
+import { Arg, GraphQLSchemaJsToTS, Type2 } from '@types';
 
 import styles from './graphQL.module.css';
 
@@ -14,35 +13,37 @@ interface graphType {
 }
 
 interface QueryState {
-  args: GraphQLObjectType[];
+  args: Arg[];
   name: string;
 }
 
 const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
-  const [layers, setLayers] = useState<GraphQLObjectType[][]>([]);
+  const [layers, setLayers] = useState<Arg[][]>([]);
   const [typeName, setTypeName] = useState<string[]>([]);
   const [query, setQuery] = useState<QueryState[]>([]);
   const resultingTypes = schema.__schema.types;
 
-  const firstLayer = resultingTypes.find((el: GraphQLObjectType) => el.name === 'Query');
+  console.log(schema);
 
-  const functionOfType = (obj: GraphQLObjectType, res: string[]): graphType => {
+  const firstLayer = resultingTypes.find(({ name }) => name === 'Query');
+
+  const functionOfType = (obj: Type2, res: string[]): graphType => {
     const resultArr = [...res, obj.kind];
     if (obj.name) {
       return { name: obj.name, result: resultArr };
     } else {
-      const { name, result } = functionOfType(obj.ofType, resultArr);
+      const { name, result } = functionOfType(obj.ofType!, resultArr);
       return {
         name,
         result,
       };
     }
   };
-  const getFullType = (obj: GraphQLObjectType) => {
+  const getFullType = (obj: Arg) => {
     if (obj.type.name) {
       return { name: obj.type.name };
     } else {
-      const { name, result } = functionOfType(obj.type.ofType, [obj.type.kind]);
+      const { name, result } = functionOfType(obj.type.ofType!, [obj.type.kind]);
       return {
         name,
         result,
@@ -50,7 +51,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
     }
   };
 
-  const getFullTypeWithMarks = (obj: GraphQLObjectType, layer = -1) => {
+  const getFullTypeWithMarks = (obj: Arg, layer = -1) => {
     const { name, result } = getFullType(obj);
     let finalResult = `${name}`;
     let isDisabled = false;
@@ -83,19 +84,25 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
     );
   };
 
-  const showNextLayerHandler = (value: string, layer: number, name: string) => {
-    const finalResult = resultingTypes.find((el: GraphQLObjectType) => el.name === value);
-    if (finalResult.fields) {
-      setLayers((prev) => [...prev.filter((_, index) => index <= layer), finalResult.fields]);
+  const showNextLayerHandler = (value: string, layer: number, valName: string) => {
+    const finalResult = resultingTypes.find(({ name }) => name === value);
+    if (finalResult?.fields) {
+      setLayers((prev) => [
+        ...prev.filter((_, index) => index <= layer),
+        finalResult.fields as Arg[],
+      ]);
     }
-    if (finalResult.inputFields) {
-      setLayers((prev) => [...prev.filter((_, index) => index <= layer), finalResult.inputFields]);
+    if (finalResult?.inputFields) {
+      setLayers((prev) => [
+        ...prev.filter((_, index) => index <= layer),
+        finalResult.inputFields as Arg[],
+      ]);
     }
     setTypeName((prev) => [...prev.filter((_, index) => index <= layer), value]);
     if (layer === -1) {
-      const queryType = resultingTypes.find((el: GraphQLObjectType) => el.name === 'Query');
-      const queryName = queryType.fields.find((el: GraphQLObjectType) => el.name === name);
-      setQuery([{ name: queryName.name, args: queryName.args }]);
+      const queryType = resultingTypes.find(({ name }) => name === 'Query');
+      const queryName = queryType?.fields?.find(({ name }) => name === valName);
+      setQuery([{ name: queryName?.name || '', args: queryName?.args || [] }]);
     }
   };
 
@@ -104,10 +111,10 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
   return (
     <section className={styles.flex}>
       <div>
-        {firstLayer.fields.map((el: GraphQLObjectType) => {
+        {firstLayer?.fields?.map((el) => {
           return (
             <div key={el.name}>
-              {el.name} type: {getFullTypeWithMarks(el)}
+              {el.name} type: {getFullTypeWithMarks(el as Arg)}
             </div>
           );
         })}
