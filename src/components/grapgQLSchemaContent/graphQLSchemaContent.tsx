@@ -23,8 +23,6 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
   const [query, setQuery] = useState<QueryState[]>([]);
   const resultingTypes = schema.__schema.types;
 
-  console.log(schema);
-
   const firstLayer = resultingTypes.find(({ name }) => name === 'Query');
 
   const functionOfType = (obj: Type2, res: string[]): graphType => {
@@ -105,8 +103,6 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
       setQuery([{ name: queryName?.name || '', args: queryName?.args || [] }]);
     }
   };
-
-  console.log(schema.__schema);
 
   return (
     <section className={styles.flex}>
