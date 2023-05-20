@@ -1,8 +1,8 @@
 export const PAGES = {
-  MAIN: {
+  WELCOM: {
     ID: 1,
     ROUTE: '/',
-    TITLE: 'Main',
+    TITLE: 'Welcome',
   },
   GRAPHQL: {
     ID: 2,
@@ -11,11 +11,16 @@ export const PAGES = {
   },
   AUTHENTICATION: {
     ID: 3,
-    ROUTE: '/auth',
-    TITLE: 'Authentification',
+    ROUTE: '/signup',
+    TITLE: 'Registration',
+  },
+  LOGIN: {
+    ID: 4,
+    ROUTE: '/signin',
+    TITLE: 'Login',
   },
   ERROR: {
-    ID: 4,
+    ID: 5,
     ROUTE: '',
     TITLE: 'Error',
   },
