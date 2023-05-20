@@ -17,7 +17,7 @@ const DevMenu = () => {
           </Button>
         </Menu.Item>
         <Menu.Item p={0} mb={5}>
-          <Button component={Link} to="/auth" fullWidth color={color}>
+          <Button component={Link} to="/signup" fullWidth color={color}>
             Authentication
           </Button>
         </Menu.Item>
