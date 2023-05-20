@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { APP_SETTINGS } from '@constants';
+import { showNotifications } from '@helpers';
 import { auth } from '@helpers/firebase';
 import {
   Anchor,
@@ -74,7 +75,7 @@ const LogInPage = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
-      alert(err);
+      showNotifications(err);
     }
   };
 

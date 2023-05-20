@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { APP_SETTINGS } from '@constants';
+import { showNotifications } from '@helpers';
 import { auth, db } from '@helpers/firebase';
 import {
   Anchor,
@@ -74,6 +75,7 @@ const AuthentificationPage = () => {
   const handleRegistration = async (email: string, password: string) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(res);
       const user = res.user;
       await addDoc(collection(db, 'users'), {
         uid: user.uid,
@@ -81,7 +83,7 @@ const AuthentificationPage = () => {
         email,
       });
     } catch (err) {
-      alert(err);
+      showNotifications(err);
     }
   };
 
