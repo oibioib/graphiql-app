@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+
+import { APP_SETTINGS } from '@constants';
+import { auth, db } from '@helpers/firebase';
 import {
   Anchor,
   Button,
@@ -11,6 +15,8 @@ import {
   createStyles,
 } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { addDoc, collection } from 'firebase/firestore';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -22,7 +28,7 @@ const schema = z.object({
       issues.push('8 chars');
     }
 
-    if (!/[A-Za-z]/.test(val)) {
+    if (!/[а-яА-Я-A-Za-z0]/.test(val)) {
       issues.push('one letter');
     }
 
@@ -30,7 +36,7 @@ const schema = z.object({
       issues.push('one digit');
     }
 
-    if (!/[#?!@$%^&*-]/.test(val)) {
+    if (!/[#?!@$%^_&*-]/.test(val)) {
       issues.push('one special character');
     }
 
@@ -64,6 +70,21 @@ const useStyles = createStyles((theme) => {
 
 const AuthentificationPage = () => {
   const { classes, cx } = useStyles();
+
+  const handleRegistration = async (email: string, password: string) => {
+    try {
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      const user = res.user;
+      await addDoc(collection(db, 'users'), {
+        uid: user.uid,
+        authProvider: 'local',
+        email,
+      });
+    } catch (err) {
+      alert(err);
+    }
+  };
+
   const form = useForm({
     validateInputOnChange: true,
     validate: zodResolver(schema),
@@ -81,6 +102,7 @@ const AuthentificationPage = () => {
             onSubmit={form.onSubmit((values) => {
               form.reset();
               console.log(values);
+              handleRegistration(values.email, values.password);
             })}
           >
             <TextInput
@@ -88,6 +110,7 @@ const AuthentificationPage = () => {
               classNames={{ input: cx({ [classes.valid]: form.isValid('email') }) }}
               label="Email"
               placeholder="email@liame.com"
+              autoComplete="current-email"
             />
             <PasswordInput
               {...form.getInputProps('password')}
@@ -95,16 +118,17 @@ const AuthentificationPage = () => {
               label="Password"
               placeholder="Your password"
               mt="md"
+              autoComplete="current-password"
             />
             <Button fullWidth mt="xl" type="submit" disabled={!form.isValid()}>
-              Sign in
+              Sign Up
             </Button>
           </form>
           <Center mt="lg">
             <Text color="dimmed" size="sm" mt={5}>
-              Do not have an account yet?
-              <Anchor size="sm" component="button" ml={5}>
-                Create account
+              Already have an account?
+              <Anchor size="sm" component={Link} to={APP_SETTINGS.PAGES.LOGIN.ROUTE} ml={5}>
+                Login now
               </Anchor>
             </Text>
           </Center>
