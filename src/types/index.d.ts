@@ -1,20 +1,20 @@
-export type AppLanguage = 'EN' | 'RU';
+type AppLanguage = 'EN' | 'RU';
 
-export interface GraphQLSchemaJsToTS {
+interface GraphQLSchemaJsToTS {
   __schema: Schema;
 }
 
-export interface Schema {
+interface Schema {
   queryType: QueryType;
   types: Type[];
   directives: Direc[];
 }
 
-export interface QueryType {
+interface QueryType {
   name: string;
 }
 
-export interface Type {
+interface Type {
   kind: string;
   name: string;
   fields?: Field[];
@@ -22,99 +22,99 @@ export interface Type {
   enumValues?: EnumValue[];
 }
 
-export interface Field {
+interface Field {
   name: string;
   args: Arg[];
   type: Type3;
   isDeprecated: boolean;
 }
 
-export interface Arg {
+type Arg = {
   name: string;
   type: Type2;
   defaultValue?: string;
-}
+};
 
-export interface Type2 {
+interface Type2 {
   kind: string;
   name?: string;
   ofType?: OfType;
 }
 
-export interface OfType {
+interface OfType {
   kind: string;
   name: string;
 }
 
-export interface Type3 {
+interface Type3 {
   kind: string;
   name?: string;
   ofType?: OfType2;
 }
 
-export interface OfType2 {
+interface OfType2 {
   kind: string;
   name?: string;
   ofType?: OfType3;
 }
 
-export interface OfType3 {
+interface OfType3 {
   kind: string;
   name?: string;
   ofType?: OfType4;
 }
 
-export interface OfType4 {
+interface OfType4 {
   kind: string;
   name: string;
 }
 
-export interface InputField {
+interface InputField {
   name: string;
   type: Type4;
 }
 
-export interface Type4 {
+interface Type4 {
   kind: string;
   name?: string;
   ofType?: OfType5;
 }
 
-export interface OfType5 {
+interface OfType5 {
   kind: string;
   name?: string;
   ofType: OfType6;
 }
 
-export interface OfType6 {
+interface OfType6 {
   kind: string;
   name: string;
 }
 
-export interface EnumValue {
+interface EnumValue {
   name: string;
   isDeprecated: boolean;
 }
 
-export interface Direc {
+interface Direc {
   name: string;
   locations: string[];
   args: Arg2[];
 }
 
-export interface Arg2 {
+interface Arg2 {
   name: string;
   type: Type5;
   defaultValue?: string;
 }
 
-export interface Type5 {
+interface Type5 {
   kind: string;
   name?: string;
   ofType?: OfType7;
 }
 
-export interface OfType7 {
+interface OfType7 {
   kind: string;
   name: string;
 }

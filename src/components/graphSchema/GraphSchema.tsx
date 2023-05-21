@@ -1,15 +1,15 @@
-import GraphQlSchemaContent from '@components/grapgQLSchemaContent/graphQLSchemaContent';
+import { GraphQlSchemaContent } from '@components';
 import { SCHEMA_QUERY } from '@constants';
-import fetchData from '@helpers/fetchDataPrimise';
+import { fetchData } from '@helpers';
 import { Button, Drawer, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { GraphQLSchemaJsToTS } from '@types';
 
 const resource = fetchData(SCHEMA_QUERY.default);
 
 const GraphSchema = () => {
   const schema = resource.read() as GraphQLSchemaJsToTS;
   const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <div>
       <Drawer

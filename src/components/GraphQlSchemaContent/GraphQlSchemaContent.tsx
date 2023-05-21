@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-import { Arg, GraphQLSchemaJsToTS, Type2 } from '@types';
-
-import styles from './graphQL.module.css';
+import styles from './GraphQlSchemaContent.module.css';
 
 interface GraphQlSchemaContentProps {
   schema: GraphQLSchemaJsToTS;
 }
+
 interface graphType {
   name: string;
   result: string[];
@@ -27,6 +26,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
 
   const functionOfType = (obj: Type2, res: string[]): graphType => {
     const resultArr = [...res, obj.kind];
+
     if (obj.name) {
       return { name: obj.name, result: resultArr };
     } else {
@@ -37,6 +37,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
       };
     }
   };
+
   const getFullType = (obj: Arg) => {
     if (obj.type.name) {
       return { name: obj.type.name };
@@ -57,6 +58,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
       if (el === 'LIST') {
         finalResult = `[${finalResult}]`;
       }
+
       if (el === 'NON_NULL') {
         finalResult = `${finalResult}!`;
       }
@@ -69,6 +71,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
     ) {
       isDisabled = true;
     }
+
     return (
       <button
         key={name}
@@ -90,13 +93,16 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
         finalResult.fields as Arg[],
       ]);
     }
+
     if (finalResult?.inputFields) {
       setLayers((prev) => [
         ...prev.filter((_, index) => index <= layer),
         finalResult.inputFields as Arg[],
       ]);
     }
+
     setTypeName((prev) => [...prev.filter((_, index) => index <= layer), value]);
+
     if (layer === -1) {
       const queryType = resultingTypes.find(({ name }) => name === 'Query');
       const queryName = queryType?.fields?.find(({ name }) => name === valName);

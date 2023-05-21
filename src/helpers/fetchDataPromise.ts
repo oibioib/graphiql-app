@@ -2,7 +2,7 @@ import { API_BASE_URL } from '@constants/apiSettings';
 
 import wrapPromise from './wrapPromise';
 
-function fetchData(query: string) {
+const fetchData = (query: string) => {
   const promise = fetch(API_BASE_URL, {
     method: 'POST',
     headers: {
@@ -14,6 +14,6 @@ function fetchData(query: string) {
     .then((res) => res.data);
 
   return wrapPromise(promise);
-}
+};
 
 export default fetchData;

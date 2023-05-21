@@ -1,5 +1,3 @@
-import { GraphQLSchemaJsToTS } from '@types';
-
 function wrapPromise(promise: Promise<GraphQLSchemaJsToTS>) {
   let status = 'pending';
   let response: GraphQLSchemaJsToTS | Error;
@@ -14,6 +12,7 @@ function wrapPromise(promise: Promise<GraphQLSchemaJsToTS>) {
       response = err;
     }
   );
+
   const read = () => {
     switch (status) {
       case 'pending':

@@ -1,3 +1,4 @@
+import { NavigateMenu } from '@components';
 import { useAppLanguage, useAppScroll } from '@hooks';
 import DevMenu from '@layouts/DevMenu/DevMenu';
 import {
@@ -41,6 +42,7 @@ const Header = () => {
           <div>Logo</div>
           <Flex gap="md">
             <DevMenu />
+            <NavigateMenu />
             <Button
               size="sm"
               color="gray"

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { Loader } from '@components';
-import GraphSchema from '@components/graphSchema/GraphSchema';
+import { GraphSchema } from '@components';
 
 import styles from './GraphQLPage.module.css';
 
