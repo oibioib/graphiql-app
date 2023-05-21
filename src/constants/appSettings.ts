@@ -1,5 +1,5 @@
 export const PAGES = {
-  WELCOM: {
+  WELCOME: {
     ID: 1,
     ROUTE: '/',
     TITLE: 'Welcome',

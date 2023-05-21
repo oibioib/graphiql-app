@@ -1,7 +1,5 @@
-import AuthentificationPage from './AuthentificationPage/AuthentificationPage';
-import ErrorPage from './ErrorPage/ErrorPage';
-import GraphQlPage from './GraphQlPage/GraphQlPage';
-import LogInPage from './LogInPage/LogInPage';
-import WelcomePage from './WelcomePage/WelcomePage';
-
-export { GraphQlPage, WelcomePage, ErrorPage, AuthentificationPage, LogInPage };
+export { default as AuthentificationPage } from './AuthentificationPage/AuthentificationPage';
+export { default as ErrorPage } from './ErrorPage/ErrorPage';
+export { default as GraphQlPage } from './GraphQlPage/GraphQlPage';
+export { default as LogInPage } from './LogInPage/LogInPage';
+export { default as WelcomePage } from './WelcomePage/WelcomePage';

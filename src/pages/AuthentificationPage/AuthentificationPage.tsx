@@ -9,7 +9,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
 
 const AuthentificationPage = () => {
-  const [isloading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const handleRegistration = async (email: string, password: string) => {
     try {
@@ -29,10 +29,11 @@ const AuthentificationPage = () => {
   };
 
   const signInRoute = APP_SETTINGS.PAGES.LOGIN.ROUTE;
+
   return (
     <Flex align="center" h="100%">
       <Container size={440} p={0} w="100%">
-        {isloading ? <NotificationLoading /> : null}
+        {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
           <FormAuth title="Sign Up" handleSubmit={handleRegistration}></FormAuth>
           <FormRedirect
