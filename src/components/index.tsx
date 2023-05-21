@@ -1,5 +1,5 @@
 export { default as GraphQlSchemaContent } from './GraphQlSchemaContent/GraphQlSchemaContent';
-export { default as GraphSchema } from './GraphSchema/GraphSchema';
+export { default as GraphSchema } from './GraphSchema2/GraphSchema';
 export { default as CheckAuth } from './CheckAuth/CheckAuth';
 export { default as FormAuth } from './Form/Form';
 export { default as FormRedirect } from './FormRedirect/FormRedirect';
