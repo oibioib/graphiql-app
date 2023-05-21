@@ -1,6 +1,4 @@
-import * as API_SETTINGS from './apiSettings';
-import * as APP_SETTINGS from './appSettings';
-import * as SCHEMA_QUERY from './schemaQuery';
-import * as STORAGE_SETTINGS from './storageSettings';
-
-export { API_SETTINGS, APP_SETTINGS, STORAGE_SETTINGS, SCHEMA_QUERY };
+export * as API_SETTINGS from './apiSettings';
+export * as APP_SETTINGS from './appSettings';
+export * as SCHEMA_QUERY from './schemaQuery';
+export * as STORAGE_SETTINGS from './storageSettings';

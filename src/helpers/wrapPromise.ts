@@ -14,6 +14,7 @@ function wrapPromise(promise: Promise<GraphQLSchemaJsToTS>) {
       response = err;
     }
   );
+
   const read = () => {
     switch (status) {
       case 'pending':
