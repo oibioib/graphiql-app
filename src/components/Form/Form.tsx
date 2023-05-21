@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { validationTestRefine } from '@helpers';
 import { Button, PasswordInput, TextInput } from '@mantine/core';
@@ -13,12 +14,13 @@ interface FormProps {
 }
 
 const schema = z.object({
-  email: z.string().trim().email({ message: 'Invalid email' }).superRefine(validationTestRefine),
+  email: z.string().trim().email({ message: 'Invalid email' }),
   password: z.string().trim().superRefine(validationTestRefine),
 });
 
 const FormAuth: FC<FormProps> = ({ title, handleSubmit }) => {
   const { classes, cx } = useStyles();
+  const { t } = useTranslation();
 
   const form = useForm({
     validateInputOnChange: true,
@@ -40,15 +42,15 @@ const FormAuth: FC<FormProps> = ({ title, handleSubmit }) => {
       <TextInput
         {...form.getInputProps('email')}
         classNames={{ input: cx({ [classes.valid]: form.isValid('email') }) }}
-        label="Email"
+        label={t('label.email')}
         placeholder="email@liame.com"
         autoComplete="current-email"
       />
       <PasswordInput
         {...form.getInputProps('password')}
         classNames={{ input: cx({ [classes.valid]: form.isValid('password') }) }}
-        label="Password"
-        placeholder="Your password"
+        label={t('label.password')}
+        placeholder={t('password.placeholder') || 'Your password'}
         mt="md"
         autoComplete="current-password"
       />

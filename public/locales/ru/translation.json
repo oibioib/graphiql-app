@@ -1,0 +1,29 @@
+{
+  "buttons": {
+    "login": "Войти",
+    "logout": "Выход",
+    "registration": "Регистрация",
+    "main": "Главная",
+    "schema": "Открыть схему"
+  },
+  "notification": {
+    "loadingMessage": "Пожалуйста, дождитесь загрузки данных",
+    "loadingTitle": "Выгрузка данных на сервер"
+  },
+  "redirect": {
+    "registrationQuestion": "Вы зарегистрировались?",
+    "loginNow": "Войти сейчас",
+    "loginQuestion": "Вы еще не зарегистрировались?",
+    "createAccount": "Создать аккаунт"
+  },
+  "label": {
+    "email": "Адрес электронной почты",
+    "password": "Пароль"
+  },
+  "password": {
+    "placeholder": "Твой пароль"
+  },
+  "error": {
+    "title": "Ошибка"
+  }
+}

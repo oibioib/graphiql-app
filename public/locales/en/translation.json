@@ -1,0 +1,29 @@
+{
+  "buttons": {
+    "login": "Sign In",
+    "logout": "Go out",
+    "registration": "Sign Up",
+    "main": "Go to Main Page",
+    "schema": "Open Schema"
+  },
+  "notification": {
+    "loadingMessage": "Please wait until data is uploaded",
+    "loadingTitle": "Uploading data to the server"
+  },
+  "redirect": {
+    "registrationQuestion": "Already have an account?",
+    "loginNow": "Login now",
+    "loginQuestion": "Do not have an account yet?",
+    "createAccount": "Create account"
+  },
+  "label": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "password": {
+    "placeholder": "Your password"
+  },
+  "error": {
+    "title": "Error"
+  }
+}

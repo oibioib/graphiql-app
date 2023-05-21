@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { GraphQlSchemaContent } from '@components';
 import { SCHEMA_QUERY } from '@constants';
 import { fetchData } from '@helpers';
@@ -9,6 +11,7 @@ const resource = fetchData(SCHEMA_QUERY.default);
 const GraphSchema = () => {
   const schema = resource.read() as GraphQLSchemaJsToTS;
   const [opened, { open, close }] = useDisclosure(false);
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -21,7 +24,7 @@ const GraphSchema = () => {
         <GraphQlSchemaContent schema={schema} />
       </Drawer>
       <Group position="center">
-        <Button onClick={open}>Open Schema</Button>
+        <Button onClick={open}>{t('buttons.schema')}</Button>
       </Group>
     </div>
   );

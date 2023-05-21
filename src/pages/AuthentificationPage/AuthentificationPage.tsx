@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { FormAuth, FormRedirect, NotificationLoading } from '@components';
 import { APP_SETTINGS } from '@constants';
@@ -10,6 +11,7 @@ import { addDoc, collection } from 'firebase/firestore';
 
 const AuthentificationPage = () => {
   const [isLoading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   const handleRegistration = async (email: string, password: string) => {
     try {
@@ -35,10 +37,10 @@ const AuthentificationPage = () => {
       <Container size={440} p={0} w="100%">
         {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
-          <FormAuth title="Sign Up" handleSubmit={handleRegistration}></FormAuth>
+          <FormAuth title={t('buttons.registration')} handleSubmit={handleRegistration}></FormAuth>
           <FormRedirect
-            question="Already have an account?"
-            title="Login now"
+            question={t('redirect.registrationQuestion')}
+            title={t('redirect.loginNow')}
             redirectRoute={signInRoute}
           ></FormRedirect>
         </Paper>
