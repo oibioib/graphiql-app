@@ -1,5 +1,21 @@
+import { Suspense } from 'react';
+
+import { Loader } from '@components';
+import { GraphSchema } from '@components';
+
+import styles from './GraphQLPage.module.css';
+
 const GraphQlPage = () => {
-  return <h1>GraphQl editor</h1>;
+  return (
+    <section className={styles.container}>
+      <h1>GraphQl editor</h1>
+      <aside className={styles.schema_container}>
+        <Suspense fallback={<Loader />}>
+          <GraphSchema />
+        </Suspense>
+      </aside>
+    </section>
+  );
 };
 
 export default GraphQlPage;
