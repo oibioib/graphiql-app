@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Center, Container, Group, Stack, Text, Title } from '@mantine/core';
 import { IconArrowLeft } from '@tabler/icons-react';
 
-import useStyles from './ErrorPage.styles.';
+import useStyles from './ErrorPage.styles';
 
 const ErrorPage = () => {
   const { classes } = useStyles();
