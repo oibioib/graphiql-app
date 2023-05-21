@@ -8,7 +8,7 @@ import { Container, Flex, Paper } from '@mantine/core';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const LogInPage = () => {
-  const [isloading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const handleLogin = async (email: string, password: string) => {
     try {
@@ -22,10 +22,11 @@ const LogInPage = () => {
   };
 
   const signUpRoute = APP_SETTINGS.PAGES.AUTHENTICATION.ROUTE;
+
   return (
     <Flex align="center" h="100%">
       <Container size={440} p={0} w="100%">
-        {isloading ? <NotificationLoading /> : null}
+        {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
           <FormAuth title="Sign In" handleSubmit={handleLogin}></FormAuth>
           <FormRedirect

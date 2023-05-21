@@ -1,5 +1,3 @@
-import * as API_SETTINGS from './apiSettings';
-import * as APP_SETTINGS from './appSettings';
-import * as STORAGE_SETTINGS from './storageSettings';
-
-export { API_SETTINGS, APP_SETTINGS, STORAGE_SETTINGS };
+export * as API_SETTINGS from './apiSettings';
+export * as APP_SETTINGS from './appSettings';
+export * as STORAGE_SETTINGS from './storageSettings';

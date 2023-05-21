@@ -1,17 +1,7 @@
-import CheckAuth from './CheckAuth/CheckAuth';
-import FormAuth from './Form/Form';
-import FormRedirect from './FormRedirect/FormRedirect';
-import Loader from './Loader/Loader';
-import NavigateMenu from './NavigateMenu/NavigateMenu';
-import NotificationLoading from './NotificationLoading/NotificationLoading';
-import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
-
-export {
-  Loader,
-  NavigateMenu,
-  ProtectedRoute,
-  CheckAuth,
-  NotificationLoading,
-  FormAuth,
-  FormRedirect,
-};
+export { default as CheckAuth } from './CheckAuth/CheckAuth';
+export { default as FormAuth } from './Form/Form';
+export { default as FormRedirect } from './FormRedirect/FormRedirect';
+export { default as Loader } from './Loader/Loader';
+export { default as NavigateMenu } from './NavigateMenu/NavigateMenu';
+export { default as NotificationLoading } from './NotificationLoading/NotificationLoading';
+export { default as ProtectedRoute } from './ProtectedRoute/ProtectedRoute';

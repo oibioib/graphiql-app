@@ -1,4 +1,4 @@
+import { validationTest, validationTestRefine } from './form';
 import { showNotificationsError } from './helpers';
-import { validationTest } from './validationTest';
 
-export { showNotificationsError, validationTest };
+export { showNotificationsError, validationTest, validationTestRefine };

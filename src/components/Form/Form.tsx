@@ -1,9 +1,11 @@
 import { FC } from 'react';
 
-import { validationTest } from '@helpers';
-import { Button, PasswordInput, TextInput, createStyles } from '@mantine/core';
+import { validationTestRefine } from '@helpers';
+import { Button, PasswordInput, TextInput } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
 import { z } from 'zod';
+
+import useStyles from './Form.style';
 
 interface FormProps {
   title: string;
@@ -11,54 +13,8 @@ interface FormProps {
 }
 
 const schema = z.object({
-  email: z
-    .string()
-    .trim()
-    .email({ message: 'Invalid email' })
-    .superRefine((val, ctx) => {
-      const issues: string[] = [];
-      validationTest(val, issues);
-      if (issues.length) {
-        const errorMessage = `At least ${issues.join(', ')}.`;
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: errorMessage,
-        });
-      }
-    }),
-
-  password: z
-    .string()
-    .trim()
-    .superRefine((val, ctx) => {
-      const issues: string[] = [];
-      validationTest(val, issues);
-      if (issues.length) {
-        const errorMessage = `At least ${issues.join(', ')}.`;
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: errorMessage,
-        });
-      }
-    }),
-});
-
-const useStyles = createStyles((theme) => {
-  const validColor = theme.colors.green[6];
-
-  return {
-    valid: {
-      borderColor: validColor,
-
-      ['&:focus-within']: {
-        borderColor: validColor,
-      },
-
-      ['&:active']: {
-        borderColor: validColor,
-      },
-    },
-  };
+  email: z.string().trim().email({ message: 'Invalid email' }).superRefine(validationTestRefine),
+  password: z.string().trim().superRefine(validationTestRefine),
 });
 
 const FormAuth: FC<FormProps> = ({ title, handleSubmit }) => {
@@ -85,7 +41,7 @@ const FormAuth: FC<FormProps> = ({ title, handleSubmit }) => {
         {...form.getInputProps('email')}
         classNames={{ input: cx({ [classes.valid]: form.isValid('email') }) }}
         label="Email"
-        placeholder="email7@liame.com"
+        placeholder="email@liame.com"
         autoComplete="current-email"
       />
       <PasswordInput

@@ -11,12 +11,15 @@ interface ProtectedRouteProps {
 
 const CheckAuth = ({ outlet }: ProtectedRouteProps) => {
   const [user, loading] = useAuthState(auth);
+
   if (loading) {
     return <Loader />;
   }
+
   if (user) {
     return <Navigate to={APP_SETTINGS.PAGES.GRAPHQL.ROUTE} replace />;
   }
+
   return outlet;
 };
 

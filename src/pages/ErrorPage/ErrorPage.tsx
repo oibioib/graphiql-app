@@ -1,54 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import {
-  Button,
-  Center,
-  Container,
-  Group,
-  Stack,
-  Text,
-  Title,
-  createStyles,
-  rem,
-} from '@mantine/core';
+import { Button, Center, Container, Group, Stack, Text, Title } from '@mantine/core';
 import { IconArrowLeft } from '@tabler/icons-react';
 
-const useStyles = createStyles((theme) => ({
-  container: {
-    paddingTop: rem(80),
-    paddingBottom: rem(80),
-  },
-
-  label: {
-    textAlign: 'center',
-    fontWeight: 900,
-    fontSize: rem(220),
-    lineHeight: 1,
-    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: rem(120),
-    },
-  },
-
-  title: {
-    textAlign: 'center',
-    fontWeight: 900,
-    fontSize: rem(38),
-
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: rem(32),
-    },
-  },
-
-  description: {
-    maxWidth: rem(500),
-    margin: 'auto',
-    marginTop: theme.spacing.xl,
-    marginBottom: `calc(${theme.spacing.xl} * 1.5)`,
-  },
-}));
+import useStyles from './ErrorPage.styles.';
 
 const ErrorPage = () => {
   const { classes } = useStyles();
