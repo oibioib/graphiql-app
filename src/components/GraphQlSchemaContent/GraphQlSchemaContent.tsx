@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { Arg, GraphQLSchemaJsToTS, Type2 } from '@types';
-
 import styles from './GraphQlSchemaContent.module.css';
 
 interface GraphQlSchemaContentProps {
