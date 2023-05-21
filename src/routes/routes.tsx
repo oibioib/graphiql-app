@@ -1,6 +1,7 @@
+import { CheckAuth, ProtectedRoute } from '@components';
 import { APP_SETTINGS } from '@constants';
 import { BaseLayout } from '@layouts';
-import { AuthentificationPage, ErrorPage, GraphQlPage, WelcomePage } from '@pages';
+import { AuthentificationPage, ErrorPage, GraphQlPage, LogInPage, WelcomePage } from '@pages';
 
 const routes = [
   {
@@ -14,11 +15,15 @@ const routes = [
       },
       {
         path: APP_SETTINGS.PAGES.GRAPHQL.ROUTE,
-        element: <GraphQlPage />,
+        element: <ProtectedRoute outlet={<GraphQlPage />} />,
       },
       {
         path: APP_SETTINGS.PAGES.AUTHENTICATION.ROUTE,
-        element: <AuthentificationPage />,
+        element: <CheckAuth outlet={<AuthentificationPage />} />,
+      },
+      {
+        path: APP_SETTINGS.PAGES.LOGIN.ROUTE,
+        element: <CheckAuth outlet={<LogInPage />} />,
       },
     ],
   },

@@ -1,5 +1,3 @@
-import useAppColorScheme from './useAppColorScheme';
-import useAppLanguage from './useAppLanguage';
-import useAppScroll from './useAppScroll';
-
-export { useAppScroll, useAppColorScheme, useAppLanguage };
+export { default as useAppColorScheme } from './useAppColorScheme';
+export { default as useAppLanguage } from './useAppLanguage';
+export { default as useAppScroll } from './useAppScroll';
