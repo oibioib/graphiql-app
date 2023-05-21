@@ -1,3 +1,3 @@
-import { showNotifications } from './helpers';
+import { showNotificationsError } from './helpers';
 
-export { showNotifications };
+export { showNotificationsError };

@@ -1,7 +1,7 @@
 import { notifications } from '@mantine/notifications';
 import { IconX } from '@tabler/icons-react';
 
-export const showNotifications = (err: unknown) => {
+export const showNotificationsError = (err: unknown) => {
   return notifications.show({
     title: 'Error',
     message: `${err} 🤥`,
