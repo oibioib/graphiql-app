@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { validationTest } from '@helpers';
 import { Button, PasswordInput, TextInput, createStyles } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
 import { z } from 'zod';
@@ -15,24 +16,8 @@ const schema = z.object({
     .trim()
     .email({ message: 'Invalid email' })
     .superRefine((val, ctx) => {
-      const issues = [];
-
-      if (val.length < 8) {
-        issues.push('8 chars');
-      }
-
-      if (!/[a-zA-Z]/.test(val)) {
-        issues.push('one letter');
-      }
-
-      if (!/[0-9]/.test(val)) {
-        issues.push('one digit');
-      }
-
-      if (!/[#?!@$%^_&*-]/.test(val)) {
-        issues.push('one special character');
-      }
-
+      const issues: string[] = [];
+      validationTest(val, issues);
       if (issues.length) {
         const errorMessage = `At least ${issues.join(', ')}.`;
         ctx.addIssue({
@@ -46,24 +31,8 @@ const schema = z.object({
     .string()
     .trim()
     .superRefine((val, ctx) => {
-      const issues = [];
-
-      if (val.length < 8) {
-        issues.push('8 chars');
-      }
-
-      if (!/[a-zA-Z]/.test(val)) {
-        issues.push('one letter');
-      }
-
-      if (!/[0-9]/.test(val)) {
-        issues.push('one digit');
-      }
-
-      if (!/[#?!@$%^_&*-]/.test(val)) {
-        issues.push('one special character');
-      }
-
+      const issues: string[] = [];
+      validationTest(val, issues);
       if (issues.length) {
         const errorMessage = `At least ${issues.join(', ')}.`;
         ctx.addIssue({
