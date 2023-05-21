@@ -1,5 +1,8 @@
+import { useTranslation } from 'react-i18next';
+
 import { NavigateMenu } from '@components';
-import { useAppLanguage, useAppScroll } from '@hooks';
+import { STORAGE_SETTINGS } from '@constants';
+import { useAppScroll } from '@hooks';
 import DevMenu from '@layouts/DevMenu/DevMenu';
 import {
   ActionIcon,
@@ -28,8 +31,19 @@ const useStyles = createStyles((theme) => ({
 const Header = () => {
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const [language, toggleLanguage] = useAppLanguage();
   const scrolled = useAppScroll();
+  const { i18n } = useTranslation();
+  const language = localStorage.getItem(STORAGE_SETTINGS.KEYS.LANGUAGE) || 'en';
+
+  const changeLanguage = () => {
+    if (language === 'en') {
+      i18n.changeLanguage('ru');
+      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'ru');
+    } else {
+      i18n.changeLanguage('en');
+      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'en');
+    }
+  };
 
   return (
     <AppShellHeader
@@ -48,9 +62,9 @@ const Header = () => {
               color="gray"
               variant="default"
               p={10}
-              onClick={() => toggleLanguage()}
+              onClick={() => changeLanguage()}
             >
-              {language}
+              {language.toUpperCase()}
             </Button>
             <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={36}>
               {colorScheme === 'dark' ? <IconSun size="1rem" /> : <IconMoon size="1rem" />}
