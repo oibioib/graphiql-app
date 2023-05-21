@@ -12,6 +12,7 @@ interface FormProps {
 const schema = z.object({
   email: z
     .string()
+    .trim()
     .email({ message: 'Invalid email' })
     .superRefine((val, ctx) => {
       const issues = [];
@@ -41,33 +42,36 @@ const schema = z.object({
       }
     }),
 
-  password: z.string().superRefine((val, ctx) => {
-    const issues = [];
+  password: z
+    .string()
+    .trim()
+    .superRefine((val, ctx) => {
+      const issues = [];
 
-    if (val.length < 8) {
-      issues.push('8 chars');
-    }
+      if (val.length < 8) {
+        issues.push('8 chars');
+      }
 
-    if (!/[a-zA-Z]/.test(val)) {
-      issues.push('one letter');
-    }
+      if (!/[a-zA-Z]/.test(val)) {
+        issues.push('one letter');
+      }
 
-    if (!/[0-9]/.test(val)) {
-      issues.push('one digit');
-    }
+      if (!/[0-9]/.test(val)) {
+        issues.push('one digit');
+      }
 
-    if (!/[#?!@$%^_&*-]/.test(val)) {
-      issues.push('one special character');
-    }
+      if (!/[#?!@$%^_&*-]/.test(val)) {
+        issues.push('one special character');
+      }
 
-    if (issues.length) {
-      const errorMessage = `At least ${issues.join(', ')}.`;
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: errorMessage,
-      });
-    }
-  }),
+      if (issues.length) {
+        const errorMessage = `At least ${issues.join(', ')}.`;
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: errorMessage,
+        });
+      }
+    }),
 });
 
 const useStyles = createStyles((theme) => {
