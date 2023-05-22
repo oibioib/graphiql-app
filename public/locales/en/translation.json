@@ -25,5 +25,13 @@
   },
   "error": {
     "title": "Error"
+  },
+  "formError": {
+    "start": "At least ",
+    "invalidEmail": "Invalid email",
+    "chars": "8 chars",
+    "letter": "one letter",
+    "digit": "one digit",
+    "specialChar": "one special character"
   }
 }
