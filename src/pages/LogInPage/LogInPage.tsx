@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { FormAuth, FormRedirect, NotificationLoading } from '@components';
 import { APP_SETTINGS } from '@constants';
@@ -9,6 +10,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const LogInPage = () => {
   const [isLoading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   const handleLogin = async (email: string, password: string) => {
     try {
@@ -28,10 +30,10 @@ const LogInPage = () => {
       <Container size={440} p={0} w="100%">
         {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
-          <FormAuth title="Sign In" handleSubmit={handleLogin}></FormAuth>
+          <FormAuth title={t('buttons.login')} handleSubmit={handleLogin}></FormAuth>
           <FormRedirect
-            question="Do not have an account yet?"
-            title="Create account"
+            question={t('redirect.loginQuestion')}
+            title={t('redirect.createAccount')}
             redirectRoute={signUpRoute}
           ></FormRedirect>
         </Paper>

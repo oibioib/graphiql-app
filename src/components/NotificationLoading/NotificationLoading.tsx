@@ -1,9 +1,12 @@
+import { useTranslation } from 'react-i18next';
+
 import { Notification } from '@mantine/core';
 
 const NotificationLoading = () => {
+  const { t } = useTranslation();
   return (
-    <Notification loading title="Uploading data to the server">
-      Please wait until data is uploaded
+    <Notification loading title={t('notification.loadingTitle')}>
+      {t('notification.loadingMessage')}
     </Notification>
   );
 };

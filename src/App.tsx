@@ -6,6 +6,8 @@ import { Notifications } from '@mantine/notifications';
 import { routes } from '@routes';
 import { theme } from '@theme';
 
+import './i18n';
+
 const router = createBrowserRouter(routes);
 
 const App = () => {

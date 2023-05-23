@@ -1,4 +1,4 @@
-type AppLanguage = 'EN' | 'RU';
+type AppLanguage = 'en' | 'ru';
 
 interface GraphQLSchemaJsToTS {
   __schema: Schema;

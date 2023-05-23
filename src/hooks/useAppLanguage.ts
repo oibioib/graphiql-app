@@ -6,12 +6,12 @@ type UseAppLanguage = [language: AppLanguage, toggleLanguage: (language?: AppLan
 const useAppLanguage = (): UseAppLanguage => {
   const [language, setLanguage] = useLocalStorage<AppLanguage>({
     key: STORAGE_SETTINGS.KEYS.LANGUAGE,
-    defaultValue: 'EN',
+    defaultValue: 'en',
     getInitialValueInEffect: true,
   });
 
   const toggleLanguage = (value?: AppLanguage) =>
-    setLanguage(value || (language === 'EN' ? 'RU' : 'EN'));
+    setLanguage(value || (language === 'en' ? 'ru' : 'en'));
 
   return [language, toggleLanguage];
 };
