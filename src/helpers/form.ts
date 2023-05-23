@@ -34,7 +34,7 @@ export const validationTestRefine = (val: string, ctx: z.RefinementCtx) => {
 };
 
 export const validationTestRefineEmail = (val: string, ctx: z.RefinementCtx) => {
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}/.test(val)) {
+  if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}/.test(val)) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       message: i18n.t('formError.invalidEmail')!,
