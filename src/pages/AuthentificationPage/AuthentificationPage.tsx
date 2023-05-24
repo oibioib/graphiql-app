@@ -40,7 +40,7 @@ const AuthentificationPage = () => {
           <FormAuth title={t('buttons.registration')} handleSubmit={handleRegistration}></FormAuth>
           <FormRedirect
             question={t('redirect.registrationQuestion')}
-            title={t('redirect.loginNow')}
+            title={t('buttons.login')}
             redirectRoute={signInRoute}
           ></FormRedirect>
         </Paper>

@@ -12,9 +12,7 @@
   },
   "redirect": {
     "registrationQuestion": "Вы зарегистрировались?",
-    "loginNow": "Войти сейчас",
-    "loginQuestion": "Вы еще не зарегистрировались?",
-    "createAccount": "Создать аккаунт"
+    "loginQuestion": "Вы еще не зарегистрировались?"
   },
   "label": {
     "email": "Адрес электронной почты",

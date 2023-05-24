@@ -33,7 +33,7 @@ const LogInPage = () => {
           <FormAuth title={t('buttons.login')} handleSubmit={handleLogin}></FormAuth>
           <FormRedirect
             question={t('redirect.loginQuestion')}
-            title={t('redirect.createAccount')}
+            title={t('buttons.registration')}
             redirectRoute={signUpRoute}
           ></FormRedirect>
         </Paper>
