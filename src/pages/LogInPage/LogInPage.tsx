@@ -30,6 +30,7 @@ const LogInPage = () => {
       <Container size={440} p={0} w="100%">
         {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
+          <h2>{t('pageTitle.login')}</h2>
           <FormAuth title={t('buttons.login')} handleSubmit={handleLogin}></FormAuth>
           <FormRedirect
             question={t('redirect.loginQuestion')}

@@ -37,6 +37,7 @@ const AuthentificationPage = () => {
       <Container size={440} p={0} w="100%">
         {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
+          <h2>{t('pageTitle.registration')}</h2>
           <FormAuth title={t('buttons.registration')} handleSubmit={handleRegistration}></FormAuth>
           <FormRedirect
             question={t('redirect.registrationQuestion')}
