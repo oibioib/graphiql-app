@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { validationTestRefine } from '@helpers';
+import { validationTestRefine, validationTestRefineEmail } from '@helpers';
 import { Button, PasswordInput, TextInput } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
 import { z } from 'zod';
@@ -14,7 +14,7 @@ interface FormProps {
 }
 
 const schema = z.object({
-  email: z.string().trim().email({ message: 'Invalid email' }),
+  email: z.string().trim().superRefine(validationTestRefineEmail),
   password: z.string().trim().superRefine(validationTestRefine),
 });
 

@@ -1,4 +1,8 @@
 {
+  "pageTitle": {
+    "login": "Войдите в свою учетную запись",
+    "registration": "Зарегистрируйте учетную запись"
+  },
   "buttons": {
     "login": "Войти",
     "logout": "Выход",
@@ -12,9 +16,7 @@
   },
   "redirect": {
     "registrationQuestion": "Вы зарегистрировались?",
-    "loginNow": "Войти сейчас",
-    "loginQuestion": "Вы еще не зарегистрировались?",
-    "createAccount": "Создать аккаунт"
+    "loginQuestion": "Вы еще не зарегистрировались?"
   },
   "label": {
     "email": "Адрес электронной почты",

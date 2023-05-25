@@ -1,4 +1,8 @@
 {
+  "pageTitle": {
+    "login": "Sign in to Your Account",
+    "registration": "Sign up for an Account"
+  },
   "buttons": {
     "login": "Sign In",
     "logout": "Go out",
@@ -12,9 +16,7 @@
   },
   "redirect": {
     "registrationQuestion": "Already have an account?",
-    "loginNow": "Login now",
-    "loginQuestion": "Do not have an account yet?",
-    "createAccount": "Create account"
+    "loginQuestion": "Do not have an account yet?"
   },
   "label": {
     "email": "Email",
