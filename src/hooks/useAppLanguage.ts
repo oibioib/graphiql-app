@@ -1,19 +1,22 @@
+import { useTranslation } from 'react-i18next';
+
 import { STORAGE_SETTINGS } from '@constants';
-import { useLocalStorage } from '@mantine/hooks';
 
-type UseAppLanguage = [language: AppLanguage, toggleLanguage: (language?: AppLanguage) => void];
+const useAppLanguage = () => {
+  const { i18n } = useTranslation();
+  const language = localStorage.getItem(STORAGE_SETTINGS.KEYS.LANGUAGE) || 'en';
 
-const useAppLanguage = (): UseAppLanguage => {
-  const [language, setLanguage] = useLocalStorage<AppLanguage>({
-    key: STORAGE_SETTINGS.KEYS.LANGUAGE,
-    defaultValue: 'en',
-    getInitialValueInEffect: true,
-  });
+  const changeLanguage = () => {
+    if (language === 'en') {
+      i18n.changeLanguage('ru');
+      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'ru');
+    } else {
+      i18n.changeLanguage('en');
+      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'en');
+    }
+  };
 
-  const toggleLanguage = (value?: AppLanguage) =>
-    setLanguage(value || (language === 'en' ? 'ru' : 'en'));
-
-  return [language, toggleLanguage];
+  return { language, changeLanguage };
 };
 
 export default useAppLanguage;

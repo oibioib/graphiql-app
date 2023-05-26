@@ -1,8 +1,5 @@
-import { useTranslation } from 'react-i18next';
-
 import { NavigateMenu } from '@components';
-import { STORAGE_SETTINGS } from '@constants';
-import { useAppScroll } from '@hooks';
+import { useAppLanguage, useAppScroll } from '@hooks';
 import {
   Header as AppShellHeader,
   Button,
@@ -27,18 +24,7 @@ const useStyles = createStyles((theme) => ({
 const Header = () => {
   const { classes, cx } = useStyles();
   const scrolled = useAppScroll();
-  const { i18n } = useTranslation();
-  const language = localStorage.getItem(STORAGE_SETTINGS.KEYS.LANGUAGE) || 'en';
-
-  const changeLanguage = () => {
-    if (language === 'en') {
-      i18n.changeLanguage('ru');
-      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'ru');
-    } else {
-      i18n.changeLanguage('en');
-      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'en');
-    }
-  };
+  const { language, changeLanguage } = useAppLanguage();
 
   return (
     <AppShellHeader

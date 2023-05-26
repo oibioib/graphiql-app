@@ -5,7 +5,7 @@ import { FormAuth, FormRedirect, NotificationLoading } from '@components';
 import { APP_SETTINGS } from '@constants';
 import { showNotificationsError } from '@helpers';
 import { auth } from '@helpers/firebase';
-import { Container, Flex, Paper } from '@mantine/core';
+import { Container, Flex, Paper, Title } from '@mantine/core';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const LogInPage = () => {
@@ -30,7 +30,9 @@ const LogInPage = () => {
       <Container size={440} p={0} w="100%">
         {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
-          <h2>{t('pageTitle.login')}</h2>
+          <Title order={1} size="h2" pb={10}>
+            {t('pageTitle.login')}
+          </Title>
           <FormAuth title={t('buttons.login')} handleSubmit={handleLogin}></FormAuth>
           <FormRedirect
             question={t('redirect.loginQuestion')}
