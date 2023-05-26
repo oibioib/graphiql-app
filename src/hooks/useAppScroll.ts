@@ -5,7 +5,7 @@ const useAppScroll = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.pageYOffset > 0) {
+      if (window.scrollY > 0) {
         setScrolled(true);
       } else {
         setScrolled(false);

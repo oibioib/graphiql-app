@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-import styles from './GraphQlSchemaContent.module.css';
+import { Box, Button, Flex } from '@mantine/core';
+
+import useStyles from './GraphQlSchemaContent.styles';
 
 interface GraphQlSchemaContentProps {
   schema: GraphQLSchemaJsToTS;
@@ -23,6 +25,8 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
   const resultingTypes = schema.__schema.types;
 
   const firstLayer = resultingTypes.find(({ name }) => name === 'Query');
+
+  const { classes, cx } = useStyles();
 
   const functionOfType = (obj: Type2, res: string[]): graphType => {
     const resultArr = [...res, obj.kind];
@@ -54,6 +58,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
     const { name, result } = getFullType(obj);
     let finalResult = `${name}`;
     let isDisabled = false;
+
     result?.forEach((el) => {
       if (el === 'LIST') {
         finalResult = `[${finalResult}]`;
@@ -72,16 +77,24 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
       isDisabled = true;
     }
 
+    if (isDisabled)
+      return (
+        <Box component="span" className={classes.disabled}>
+          {finalResult}
+        </Box>
+      );
+
     return (
-      <button
+      <Button
+        variant="outline"
+        compact
         key={name}
-        disabled={isDisabled}
         onClick={() => {
           showNextLayerHandler(name, layer, obj.name);
         }}
       >
         {finalResult}
-      </button>
+      </Button>
     );
   };
 
@@ -111,42 +124,45 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
   };
 
   return (
-    <section className={styles.flex}>
-      <div>
+    <Flex className={classes.container}>
+      <Box className={classes.element}>
         {firstLayer?.fields?.map((el) => {
           return (
-            <div key={el.name}>
+            <Box key={el.name}>
               {el.name} type: {getFullTypeWithMarks(el as Arg)}
-            </div>
+            </Box>
           );
         })}
-      </div>
-      <div className={styles.flex}>
-        {layers.length > 0 &&
-          layers.map((el, index) => {
-            return (
-              <div key={index}>
-                {query[index] && (
-                  <div>
-                    {query[index].name} &#123; args:
-                    {query[index].args.map((el) => getFullTypeWithMarks(el, index))}
-                    &#125;
-                  </div>
-                )}
-                {typeName[index]} &#123;
-                {el.map((elem) => {
-                  return (
-                    <div key={elem.name}>
-                      {elem.name} type: {getFullTypeWithMarks(elem, index)}
-                    </div>
-                  );
-                })}
-                &#125;
-              </div>
-            );
-          })}
-      </div>
-    </section>
+      </Box>
+      {layers.length > 0 &&
+        layers.map((el, index) => {
+          return (
+            <Box className={classes.element} key={index}>
+              {query[index] && (
+                <Box>
+                  {query[index].name}
+                  <Box component="span" className={cx(classes.args, classes.bracket_before)}>
+                    args:
+                  </Box>
+                  {query[index].args.map((el) => getFullTypeWithMarks(el, index))}
+                  <Box component="span" className={classes.bracket_after} />
+                </Box>
+              )}
+              <Box component="span" className={cx(classes.args, classes.bracket_after_open)}>
+                {typeName[index]}
+              </Box>
+              {el.map((elem) => {
+                return (
+                  <Box className={classes.indent_element} key={elem.name}>
+                    {elem.name} type: {getFullTypeWithMarks(elem, index)}
+                  </Box>
+                );
+              })}
+              <Box component="span" className={classes.bracket_after_close} pl={0} />
+            </Box>
+          );
+        })}
+    </Flex>
   );
 };
 

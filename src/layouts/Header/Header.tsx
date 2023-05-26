@@ -3,18 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { NavigateMenu } from '@components';
 import { STORAGE_SETTINGS } from '@constants';
 import { useAppScroll } from '@hooks';
-import DevMenu from '@layouts/DevMenu/DevMenu';
 import {
-  ActionIcon,
   Header as AppShellHeader,
   Button,
   Container,
   Flex,
   Group,
   createStyles,
-  useMantineColorScheme,
 } from '@mantine/core';
-import { IconMoon, IconSun } from '@tabler/icons-react';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -30,7 +26,6 @@ const useStyles = createStyles((theme) => ({
 
 const Header = () => {
   const { classes, cx } = useStyles();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const scrolled = useAppScroll();
   const { i18n } = useTranslation();
   const language = localStorage.getItem(STORAGE_SETTINGS.KEYS.LANGUAGE) || 'en';
@@ -55,7 +50,6 @@ const Header = () => {
         <Group position="apart" sx={{ height: '100%' }}>
           <div>Logo</div>
           <Flex gap="md">
-            <DevMenu />
             <NavigateMenu />
             <Button
               size="sm"
@@ -66,9 +60,6 @@ const Header = () => {
             >
               {language.toUpperCase()}
             </Button>
-            <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={36}>
-              {colorScheme === 'dark' ? <IconSun size="1rem" /> : <IconMoon size="1rem" />}
-            </ActionIcon>
           </Flex>
         </Group>
       </Container>
