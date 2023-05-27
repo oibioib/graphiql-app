@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { CodeEditor } from '@components';
 import { useEditor } from '@hooks';
@@ -10,9 +11,10 @@ import useStyles from './EditorTab.styles';
 const EditorTab = () => {
   const { classes } = useStyles();
   const { query, setQuery, code, onMutate, isLoading } = useEditor();
-
   const [showVariables, setShowVariables] = useState<boolean>(false);
   const [showHeaders, setShowHeaders] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   return (
     <>
@@ -25,7 +27,7 @@ const EditorTab = () => {
           }}
           disabled={isLoading}
         >
-          Variables
+          {t('buttons.variables')}
         </Button>
         <Button
           variant={showHeaders ? 'filled' : 'light'}
@@ -35,7 +37,7 @@ const EditorTab = () => {
           }}
           disabled={isLoading}
         >
-          Headers
+          {t('buttons.headers')}
         </Button>
         <Button
           onClick={onMutate}
@@ -44,7 +46,7 @@ const EditorTab = () => {
           gradient={{ from: 'pink.6', to: 'orange.7', deg: 105 }}
           rightIcon={<IconPlayerPlayFilled size={16} />}
         >
-          Run Query
+          {t('buttons.runQuery')}
         </Button>
       </Group>
       {showVariables && <Box>Variables</Box>}
