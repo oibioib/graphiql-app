@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { CodeEditor } from '@components';
 import { useEditor } from '@hooks';
 import { Box, Button, Group, Stack } from '@mantine/core';
+import { IconPlayerPlayFilled } from '@tabler/icons-react';
 
 import useStyles from './EditorTab.styles';
 
@@ -17,7 +18,7 @@ const EditorTab = () => {
     <>
       <Group className={classes.header}>
         <Button
-          variant="subtle"
+          variant={showVariables ? 'filled' : 'light'}
           onClick={() => {
             setShowVariables((show) => !show);
             setShowHeaders(false);
@@ -27,7 +28,7 @@ const EditorTab = () => {
           Variables
         </Button>
         <Button
-          variant="subtle"
+          variant={showHeaders ? 'filled' : 'light'}
           onClick={() => {
             setShowHeaders((show) => !show);
             setShowVariables(false);
@@ -36,7 +37,13 @@ const EditorTab = () => {
         >
           Headers
         </Button>
-        <Button onClick={onMutate} disabled={isLoading}>
+        <Button
+          onClick={onMutate}
+          disabled={isLoading}
+          variant="gradient"
+          gradient={{ from: 'pink.6', to: 'orange.7', deg: 105 }}
+          rightIcon={<IconPlayerPlayFilled size={16} />}
+        >
           Run Query
         </Button>
       </Group>

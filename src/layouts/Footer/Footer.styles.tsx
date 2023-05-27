@@ -6,6 +6,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
     paddingTop: theme.spacing.md,
     paddingBottom: theme.spacing.md,
+    border: 0,
   },
 
   container: {
@@ -23,6 +24,12 @@ const useStyles = createStyles((theme) => ({
   members: {
     justifyContent: 'center',
     gap: 5,
+  },
+
+  year: {
+    color: theme.colors.gray[6],
+    fontWeight: 700,
+    fontSize: 14,
   },
 }));
 
