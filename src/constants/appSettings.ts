@@ -54,3 +54,8 @@ export const TEAM = [
     photo: alchonokk,
   },
 ];
+
+export const EDITOR_TABS = {
+  EDITOR: 'editor',
+  SCHEMA: 'schema',
+};

@@ -35,5 +35,9 @@
     "letter": "one letter",
     "digit": "one digit",
     "specialChar": "one special character"
+  },
+  "graphiQlTabs": {
+    "editor": "Editor",
+    "schema": "Schema"
   }
 }
