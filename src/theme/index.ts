@@ -1,3 +1,1 @@
-import { theme } from './mantine/mantine';
-
-export { theme };
+export { default as theme } from './theme';

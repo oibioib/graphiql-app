@@ -1,3 +1,5 @@
+import { alchonokk, alextes90, oibioib } from '@assets';
+
 export const PAGES = {
   WELCOME: {
     ID: 1,
@@ -25,3 +27,30 @@ export const PAGES = {
     TITLE: 'Error',
   },
 };
+
+export const AUTHORS = {
+  PAVEL_GITHUB: 'oibioib',
+  ALEX_GITHUB: 'alextes90',
+  ALCHONOKK_GITHUB: 'alchonokk',
+};
+
+export const TEAM = [
+  {
+    id: 1,
+    github: 'oibioib',
+    member: 'Pavel Bodal',
+    photo: oibioib,
+  },
+  {
+    id: 2,
+    github: 'alextes90',
+    member: 'Aleksandr Teslin',
+    photo: alextes90,
+  },
+  {
+    id: 3,
+    github: 'alchonokk',
+    member: 'Galina Hadatovich',
+    photo: alchonokk,
+  },
+];

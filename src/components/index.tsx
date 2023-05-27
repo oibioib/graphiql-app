@@ -7,3 +7,6 @@ export { default as Loader } from './Loader/Loader';
 export { default as NavigateMenu } from './NavigateMenu/NavigateMenu';
 export { default as NotificationLoading } from './NotificationLoading/NotificationLoading';
 export { default as ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
+export { default as MemberTag } from './MemberTag/MemberTag';
+export { default as RSLink } from './RSLink/RSLink';
+export { default as AboutUs } from './AboutUs/AboutUs';

@@ -2,19 +2,26 @@ import { Suspense } from 'react';
 
 import { Loader } from '@components';
 import { GraphSchema } from '@components';
-
-import styles from './GraphQLPage.module.css';
+import { Tabs } from '@mantine/core';
 
 const GraphQlPage = () => {
   return (
-    <section className={styles.container}>
-      <h1>GraphQl editor</h1>
-      <aside className={styles.schema_container}>
+    <Tabs defaultValue="editor">
+      <Tabs.List>
+        <Tabs.Tab value="editor">Editor</Tabs.Tab>
+        <Tabs.Tab value="schema">Schema</Tabs.Tab>
+      </Tabs.List>
+
+      <Tabs.Panel value="schema" pt="xs">
         <Suspense fallback={<Loader />}>
           <GraphSchema />
         </Suspense>
-      </aside>
-    </section>
+      </Tabs.Panel>
+
+      <Tabs.Panel value="editor" pt="xs">
+        Editor
+      </Tabs.Panel>
+    </Tabs>
   );
 };
 

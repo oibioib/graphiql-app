@@ -1,7 +1,7 @@
 {
   "pageTitle": {
-    "login": "Sign in to Your Account",
-    "registration": "Sign up for an Account"
+    "login": "Sign In",
+    "registration": "Sign Up"
   },
   "buttons": {
     "login": "Sign In",

@@ -5,7 +5,7 @@ import { FormAuth, FormRedirect, NotificationLoading } from '@components';
 import { APP_SETTINGS } from '@constants';
 import { showNotificationsError } from '@helpers';
 import { auth, db } from '@helpers/firebase';
-import { Container, Flex, Paper } from '@mantine/core';
+import { Container, Flex, Paper, Title } from '@mantine/core';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
 
@@ -37,7 +37,9 @@ const AuthentificationPage = () => {
       <Container size={440} p={0} w="100%">
         {isLoading ? <NotificationLoading /> : null}
         <Paper withBorder shadow="md" p={30} radius="md">
-          <h2>{t('pageTitle.registration')}</h2>
+          <Title order={1} size="h2" pb={10}>
+            {t('pageTitle.registration')}
+          </Title>
           <FormAuth title={t('buttons.registration')} handleSubmit={handleRegistration}></FormAuth>
           <FormRedirect
             question={t('redirect.registrationQuestion')}

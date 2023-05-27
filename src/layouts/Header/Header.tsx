@@ -1,49 +1,16 @@
-import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
+import { LogoImage } from '@assets';
 import { NavigateMenu } from '@components';
-import { STORAGE_SETTINGS } from '@constants';
-import { useAppScroll } from '@hooks';
-import DevMenu from '@layouts/DevMenu/DevMenu';
-import {
-  ActionIcon,
-  Header as AppShellHeader,
-  Button,
-  Container,
-  Flex,
-  Group,
-  createStyles,
-  useMantineColorScheme,
-} from '@mantine/core';
-import { IconMoon, IconSun } from '@tabler/icons-react';
+import { useAppLanguage, useAppScroll } from '@hooks';
+import { Header as AppShellHeader, Box, Button, Container, Flex, Group, Text } from '@mantine/core';
 
-const useStyles = createStyles((theme) => ({
-  header: {
-    transition: '0.3s',
-  },
-
-  header_active: {
-    position: 'fixed',
-    boxShadow: theme.shadows.md,
-    backgroundColor: theme.colorScheme === 'light' ? theme.colors.gray[1] : theme.colors.dark[6],
-  },
-}));
+import useStyles from './Header.styles';
 
 const Header = () => {
   const { classes, cx } = useStyles();
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const scrolled = useAppScroll();
-  const { i18n } = useTranslation();
-  const language = localStorage.getItem(STORAGE_SETTINGS.KEYS.LANGUAGE) || 'en';
-
-  const changeLanguage = () => {
-    if (language === 'en') {
-      i18n.changeLanguage('ru');
-      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'ru');
-    } else {
-      i18n.changeLanguage('en');
-      localStorage.setItem(STORAGE_SETTINGS.KEYS.LANGUAGE, 'en');
-    }
-  };
+  const { language, changeLanguage } = useAppLanguage();
 
   return (
     <AppShellHeader
@@ -52,10 +19,14 @@ const Header = () => {
       className={cx(classes.header, { [classes.header_active]: scrolled })}
     >
       <Container size="xl">
-        <Group position="apart" sx={{ height: '100%' }}>
-          <div>Logo</div>
+        <Group className={classes.container}>
+          <Box component={Link} to="/" className={classes.logo}>
+            <Group>
+              <Box component={LogoImage} className={classes.logo_image} />
+              <Text>GraphiQL</Text>
+            </Group>
+          </Box>
           <Flex gap="md">
-            <DevMenu />
             <NavigateMenu />
             <Button
               size="sm"
@@ -66,9 +37,6 @@ const Header = () => {
             >
               {language.toUpperCase()}
             </Button>
-            <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={36}>
-              {colorScheme === 'dark' ? <IconSun size="1rem" /> : <IconMoon size="1rem" />}
-            </ActionIcon>
           </Flex>
         </Group>
       </Container>
