@@ -5,7 +5,8 @@ const useStyles = createStyles((theme) => {
 
   return {
     tabs: {
-      height: '100%',
+      height: `calc(100% - ${px(tabsSpacing) * 5}px)`,
+      maxHeight: 800,
     },
 
     tab: {

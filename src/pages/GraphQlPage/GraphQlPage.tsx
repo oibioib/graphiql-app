@@ -10,7 +10,6 @@ import useStyles from './GraphQlPage.styles';
 
 const GraphQlPage = () => {
   const { classes } = useStyles();
-
   const { t } = useTranslation();
 
   return (

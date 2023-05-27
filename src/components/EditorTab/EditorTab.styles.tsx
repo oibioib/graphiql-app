@@ -3,7 +3,6 @@ import { createStyles } from '@mantine/core';
 const useStyles = createStyles((theme) => ({
   container: {
     height: '100%',
-    gap: theme.spacing.xs,
   },
 
   box: {
@@ -11,6 +10,11 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colors.gray[1],
     padding: 10,
     borderRadius: theme.radius.md,
+
+    [theme.fn.smallerThan('xs')]: {
+      padding: 5,
+      fontSize: 12,
+    },
   },
 }));
 

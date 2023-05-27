@@ -1,12 +1,9 @@
 import { notifications } from '@mantine/notifications';
-import { IconX } from '@tabler/icons-react';
 
-export const showNotificationsError = (err: unknown) => {
+export const showNotificationsError = (errorMessage: unknown) => {
   return notifications.show({
-    title: 'Error',
-    message: `${err} 🤥`,
+    message: `${errorMessage} 🤥`,
     autoClose: 3000,
-    icon: <IconX />,
     color: 'red',
   });
 };
