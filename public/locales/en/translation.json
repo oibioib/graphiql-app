@@ -8,7 +8,10 @@
     "logout": "Go out",
     "registration": "Sign Up",
     "main": "Go to Main Page",
-    "schema": "Open Schema"
+    "schema": "Open Schema",
+    "variables": "Variables",
+    "headers": "Headers",
+    "runQuery": "Run query"
   },
   "notification": {
     "loadingMessage": "Please wait until data is uploaded",
@@ -35,5 +38,9 @@
     "letter": "one letter",
     "digit": "one digit",
     "specialChar": "one special character"
+  },
+  "graphiQlTabs": {
+    "editor": "Editor",
+    "schema": "Schema"
   }
 }

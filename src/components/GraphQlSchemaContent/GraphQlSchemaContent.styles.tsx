@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colors.gray[1],
     padding: theme.spacing.sm,
     flexShrink: 0,
-    borderRadius: theme.radius.lg,
+    borderRadius: theme.radius.md,
   },
 
   indent_element: {

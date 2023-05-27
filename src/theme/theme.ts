@@ -24,6 +24,12 @@ const theme: MantineThemeOverride = {
   globalStyles: (theme) => ({
     ['::-webkit-scrollbar']: {
       width: 12,
+      height: 12,
+
+      [theme.fn.smallerThan('xs')]: {
+        width: 7,
+        height: 7,
+      },
     },
 
     ['::-webkit-scrollbar-track']: {

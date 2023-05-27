@@ -26,7 +26,7 @@ const Header = () => {
               <Text>GraphiQL</Text>
             </Group>
           </Box>
-          <Flex gap="md">
+          <Flex gap="xs">
             <NavigateMenu />
             <Button
               size="sm"

@@ -1,25 +1,30 @@
 import { Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { Loader } from '@components';
+import { EditorTab, Loader } from '@components';
 import { GraphSchema } from '@components';
+import { APP_SETTINGS } from '@constants';
 import { Tabs } from '@mantine/core';
 
-const GraphQlPage = () => {
-  return (
-    <Tabs defaultValue="editor">
-      <Tabs.List>
-        <Tabs.Tab value="editor">Editor</Tabs.Tab>
-        <Tabs.Tab value="schema">Schema</Tabs.Tab>
-      </Tabs.List>
+import useStyles from './GraphQlPage.styles';
 
-      <Tabs.Panel value="schema" pt="xs">
+const GraphQlPage = () => {
+  const { classes } = useStyles();
+  const { t } = useTranslation();
+
+  return (
+    <Tabs defaultValue={APP_SETTINGS.EDITOR_TABS.EDITOR} className={classes.tabs}>
+      <Tabs.List>
+        <Tabs.Tab value={APP_SETTINGS.EDITOR_TABS.EDITOR}>{t('graphiQlTabs.editor')}</Tabs.Tab>
+        <Tabs.Tab value={APP_SETTINGS.EDITOR_TABS.SCHEMA}>{t('graphiQlTabs.schema')}</Tabs.Tab>
+      </Tabs.List>
+      <Tabs.Panel value={APP_SETTINGS.EDITOR_TABS.EDITOR} className={classes.tab}>
+        <EditorTab />
+      </Tabs.Panel>
+      <Tabs.Panel value={APP_SETTINGS.EDITOR_TABS.SCHEMA} className={classes.tab}>
         <Suspense fallback={<Loader />}>
           <GraphSchema />
         </Suspense>
-      </Tabs.Panel>
-
-      <Tabs.Panel value="editor" pt="xs">
-        Editor
       </Tabs.Panel>
     </Tabs>
   );

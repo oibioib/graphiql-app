@@ -10,3 +10,5 @@ export { default as ProtectedRoute } from './ProtectedRoute/ProtectedRoute';
 export { default as MemberTag } from './MemberTag/MemberTag';
 export { default as RSLink } from './RSLink/RSLink';
 export { default as AboutUs } from './AboutUs/AboutUs';
+export { default as EditorTab } from './EditorTab/EditorTab';
+export { default as CodeEditor } from './CodeEditor/CodeEditor';

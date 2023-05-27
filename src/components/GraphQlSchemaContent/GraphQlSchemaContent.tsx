@@ -8,7 +8,7 @@ interface GraphQlSchemaContentProps {
   schema: GraphQLSchemaJsToTS;
 }
 
-interface graphType {
+interface GraphType {
   name: string;
   result: string[];
 }
@@ -28,7 +28,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
 
   const { classes, cx } = useStyles();
 
-  const functionOfType = (obj: Type2, res: string[]): graphType => {
+  const functionOfType = (obj: Type2, res: string[]): GraphType => {
     const resultArr = [...res, obj.kind];
 
     if (obj.name) {
@@ -79,7 +79,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
 
     if (isDisabled)
       return (
-        <Box component="span" className={classes.disabled}>
+        <Box component="span" key={name} className={classes.disabled}>
           {finalResult}
         </Box>
       );

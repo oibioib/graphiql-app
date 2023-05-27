@@ -8,7 +8,10 @@
     "logout": "Выход",
     "registration": "Регистрация",
     "main": "Главная",
-    "schema": "Открыть схему"
+    "schema": "Открыть схему",
+    "variables": "Переменные",
+    "headers": "Заголовки",
+    "runQuery": "Выполнить запрос"
   },
   "notification": {
     "loadingMessage": "Пожалуйста, дождитесь загрузки данных",
@@ -35,5 +38,9 @@
     "letter": "одна буква",
     "digit": "одна цифра",
     "specialChar": "один специальный символ"
+  },
+  "graphiQlTabs": {
+    "editor": "Редактор",
+    "schema": "Схема"
   }
 }

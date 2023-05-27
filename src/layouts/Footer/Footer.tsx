@@ -15,10 +15,12 @@ const Footer = () => {
     <AppShellFooter height="auto" className={classes.footer}>
       <Container size="xl" className={classes.container}>
         <Group className={classes.group}>
-          <Group className={classes.members}>{authors}</Group>
           <RSLink />
+          <Group className={classes.members}>{authors}</Group>
           <Flex gap="md">
-            <Text fw="600">2023</Text>
+            <Text component="span" className={classes.year}>
+              2023
+            </Text>
           </Flex>
         </Group>
       </Container>
