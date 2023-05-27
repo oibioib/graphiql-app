@@ -128,7 +128,7 @@ const GraphQlSchemaContent = ({ schema }: GraphQlSchemaContentProps) => {
       <Box className={classes.element}>
         {firstLayer?.fields?.map((el) => {
           return (
-            <Box key={el.name}>
+            <Box key={el.name} py={2}>
               {el.name} type: {getFullTypeWithMarks(el as Arg)}
             </Box>
           );
