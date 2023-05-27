@@ -1,6 +1,6 @@
 import { MantineThemeOverride } from '@mantine/core';
 
-export const theme: MantineThemeOverride = {
+const theme: MantineThemeOverride = {
   fontFamily: `'Inter', sans-serif`,
   primaryColor: 'cyan',
   components: {
@@ -39,3 +39,5 @@ export const theme: MantineThemeOverride = {
     },
   }),
 };
+
+export default theme;

@@ -23,12 +23,12 @@ const useStyles = createStyles((theme) => ({
   logo: {
     textDecoration: 'none',
     fontWeight: 600,
-    color: theme.colors.cyan[6],
+    color: theme.colors[theme.primaryColor][6],
     transition: '0.3s',
     fontSize: 30,
 
     ['&:hover']: {
-      color: theme.colors.cyan[7],
+      color: theme.colors[theme.primaryColor][7],
     },
   },
 
