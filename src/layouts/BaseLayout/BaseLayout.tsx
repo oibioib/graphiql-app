@@ -4,6 +4,10 @@ import { Footer, Header } from '@layouts';
 import { AppShell, Box, Container, createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
+  main: {
+    padding: '7px 0',
+  },
+
   container: {
     flexGrow: 1,
     height: '100%',
@@ -18,7 +22,12 @@ const BaseLayout = () => {
   const { classes } = useStyles();
   return (
     <Box h="100vh">
-      <AppShell header={<Header />} footer={<Footer />} fixed={false}>
+      <AppShell
+        header={<Header />}
+        footer={<Footer />}
+        fixed={false}
+        classNames={{ main: classes.main }}
+      >
         <Container size="xl" className={classes.container}>
           <Outlet />
         </Container>

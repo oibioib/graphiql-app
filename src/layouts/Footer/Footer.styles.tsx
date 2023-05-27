@@ -22,6 +22,7 @@ const useStyles = createStyles((theme) => ({
 
   members: {
     justifyContent: 'center',
+    gap: 5,
   },
 }));
 

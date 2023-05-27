@@ -1,19 +1,19 @@
-import { createStyles, px } from '@mantine/core';
+import { createStyles } from '@mantine/core';
 
-const useStyles = createStyles((theme) => {
-  const tabsSpacing = theme.spacing.xs;
+const useStyles = createStyles((theme) => ({
+  tabs: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
+  },
 
-  return {
-    tabs: {
-      height: `calc(100% - ${px(tabsSpacing) * 5}px)`,
-      maxHeight: 800,
-    },
-
-    tab: {
-      paddingTop: tabsSpacing,
-      height: `calc(100% - ${px(tabsSpacing) * 3}px)`,
-    },
-  };
-});
+  tab: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1',
+    paddingTop: theme.spacing.xs,
+  },
+}));
 
 export default useStyles;

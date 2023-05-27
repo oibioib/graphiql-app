@@ -2,10 +2,12 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   container: {
-    height: '100%',
+    flex: 1,
   },
 
   box: {
+    display: 'flex',
+    width: '100%',
     height: '100%',
     backgroundColor: theme.colors.gray[1],
     padding: 10,
@@ -14,6 +16,15 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('xs')]: {
       padding: 5,
       fontSize: 12,
+    },
+  },
+
+  header: {
+    paddingBottom: 10,
+    gap: 7,
+
+    [theme.fn.smallerThan('xs')]: {
+      justifyContent: 'center',
     },
   },
 }));

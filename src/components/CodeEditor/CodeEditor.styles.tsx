@@ -2,7 +2,7 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   editor: {
-    height: '100%',
+    width: '100%',
     overflowY: 'auto',
 
     '.cm-editor': {
