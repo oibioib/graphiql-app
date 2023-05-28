@@ -12,3 +12,5 @@ export { default as RSLink } from './RSLink/RSLink';
 export { default as AboutUs } from './AboutUs/AboutUs';
 export { default as EditorTab } from './EditorTab/EditorTab';
 export { default as CodeEditor } from './CodeEditor/CodeEditor';
+export { default as ErrorBoundary } from './ErrorBoundary/ErrorBoundary';
+export { default as ErrorMessage } from './ErrorMessage/ErrorMessage';
