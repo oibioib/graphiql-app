@@ -35,7 +35,6 @@ const FormAuth: FC<FormProps> = ({ title, handleSubmit }) => {
     <form
       onSubmit={form.onSubmit((values) => {
         form.reset();
-        console.log(values);
         handleSubmit(values.email, values.password);
       })}
     >
