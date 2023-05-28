@@ -4,6 +4,7 @@ import { Notification } from '@mantine/core';
 
 const NotificationLoading = () => {
   const { t } = useTranslation();
+
   return (
     <Notification loading title={t('notification.loadingTitle')}>
       {t('notification.loadingMessage')}

@@ -9,10 +9,17 @@ import { IconPlayerPlayFilled } from '@tabler/icons-react';
 import useStyles from './EditorTab.styles';
 
 const EditorTab = () => {
-  const { classes } = useStyles();
-  const { query, setQuery, code, onMutate, isLoading } = useEditor();
+  const { classes, cx } = useStyles();
+  const {
+    storeQuery,
+    setStoreQuery,
+    storeVariables,
+    setStoreVariables,
+    code,
+    onMutate,
+    isLoading,
+  } = useEditor();
   const [showVariables, setShowVariables] = useState<boolean>(false);
-  const [showHeaders, setShowHeaders] = useState<boolean>(false);
 
   const { t } = useTranslation();
 
@@ -23,21 +30,10 @@ const EditorTab = () => {
           variant={showVariables ? 'filled' : 'light'}
           onClick={() => {
             setShowVariables((show) => !show);
-            setShowHeaders(false);
           }}
           disabled={isLoading}
         >
           {t('buttons.variables')}
-        </Button>
-        <Button
-          variant={showHeaders ? 'filled' : 'light'}
-          onClick={() => {
-            setShowHeaders((show) => !show);
-            setShowVariables(false);
-          }}
-          disabled={isLoading}
-        >
-          {t('buttons.headers')}
         </Button>
         <Button
           onClick={onMutate}
@@ -49,11 +45,14 @@ const EditorTab = () => {
           {t('buttons.runQuery')}
         </Button>
       </Group>
-      {showVariables && <Box>Variables</Box>}
-      {showHeaders && <Box>Headers</Box>}
+      {showVariables && (
+        <Box className={cx(classes.box, classes.variables)}>
+          <CodeEditor code={storeVariables} isActive={true} onChange={setStoreVariables} />
+        </Box>
+      )}
       <Group grow spacing={7} className={classes.container}>
         <Box className={classes.box}>
-          <CodeEditor code={query} isActive={true} onChange={setQuery} />
+          <CodeEditor code={storeQuery} isActive={true} onChange={setStoreQuery} />
         </Box>
         <Stack sx={{ height: '100%' }}>
           <Box className={classes.box}>

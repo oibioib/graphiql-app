@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Anchor, Center, Text } from '@mantine/core';
@@ -9,7 +8,7 @@ interface FormProps {
   redirectRoute: string;
 }
 
-const FormRedirect: FC<FormProps> = ({ question, title, redirectRoute }) => {
+const FormRedirect = ({ question, title, redirectRoute }: FormProps) => {
   return (
     <Center mt="lg">
       <Text color="dimmed" size="sm" mt={5}>

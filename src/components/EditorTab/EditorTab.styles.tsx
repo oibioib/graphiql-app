@@ -27,6 +27,15 @@ const useStyles = createStyles((theme) => ({
       justifyContent: 'center',
     },
   },
+
+  variables: {
+    padding: 10,
+    borderRadius: theme.radius.md,
+    marginBottom: 7,
+    height: 'auto',
+
+    maxHeight: 200,
+  },
 }));
 
 export default useStyles;
