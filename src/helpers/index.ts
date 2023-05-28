@@ -1,6 +1,6 @@
 import fetchData from './fetchDataPromise';
 import { validationTest, validationTestRefine, validationTestRefineEmail } from './form';
-import { showNotificationsError } from './helpers';
+import { handleAxiosError, parseJSON, showNotificationsError } from './helpers';
 
 export {
   showNotificationsError,
@@ -8,4 +8,6 @@ export {
   validationTestRefine,
   fetchData,
   validationTestRefineEmail,
+  parseJSON,
+  handleAxiosError,
 };

@@ -2,12 +2,16 @@ import { useEffect, useMemo } from 'react';
 
 import queryData from '@api/api';
 import { showNotificationsError } from '@helpers';
-import { useStoreQuery } from '@store';
+import { useStoreQuery, useStoreVariables } from '@store';
 import { useMutation } from '@tanstack/react-query';
 
 const useEditor = () => {
-  const query = useStoreQuery((state) => state.query);
-  const setQuery = useStoreQuery((state) => state.setQuery);
+  const storeQuery = useStoreQuery((state) => state.storeQuery);
+  const setStoreQuery = useStoreQuery((state) => state.setStoreQuery);
+
+  const storeVariables = useStoreVariables((state) => state.storeVariables);
+  const setStoreVariables = useStoreVariables((state) => state.setStoreVariables);
+
   const { data, isLoading, isError, mutate } = useMutation({ mutationFn: queryData });
 
   const code = useMemo(() => {
@@ -17,14 +21,25 @@ const useEditor = () => {
   }, [data]);
 
   useEffect(() => {
-    if (isError) showNotificationsError('something');
+    if (isError) showNotificationsError('Something went wrong');
   }, [isError]);
 
   const onMutate = () => {
-    mutate(query);
+    mutate({
+      query: storeQuery,
+      variables: storeVariables,
+    });
   };
 
-  return { query, setQuery, code, onMutate, isLoading };
+  return {
+    storeQuery,
+    setStoreQuery,
+    storeVariables,
+    setStoreVariables,
+    code,
+    onMutate,
+    isLoading,
+  };
 };
 
 export default useEditor;
