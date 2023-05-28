@@ -15,10 +15,9 @@ const Header = () => {
   return (
     <AppShellHeader
       height="auto"
-      py="md"
       className={cx(classes.header, { [classes.header_active]: scrolled })}
     >
-      <Container size="xl">
+      <Container size="xl" w="100%">
         <Group className={classes.container}>
           <Box component={Link} to="/" className={classes.logo}>
             <Group>
