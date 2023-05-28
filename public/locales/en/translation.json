@@ -1,0 +1,65 @@
+{
+  "welcomePage": {
+    "title": "GraphiQL is a playground for graphQL requests",
+    "opportunity": "You can request exactly the data you need and nothing more.",
+    "appContentTitle": "This App includes:",
+    "appContentItem1": "Working editor allowing to edit the query",
+    "appContentItem2": "Variables section",
+    "appContentItem3": "Response section",
+    "appContentItem4": "Working documentation explorer",
+    "team": "Our team"
+  },
+  "errorPage": {
+    "title": "You have found a secret place.",
+    "description": "Unfortunately, this is only a 404 page. You may have mistyped the address, or the page has been moved to another URL.",
+    "goBack": "Back to home page"
+  },
+  "pageTitle": {
+    "login": "Sign In",
+    "registration": "Sign Up"
+  },
+  "buttons": {
+    "login": "Sign In",
+    "logout": "Go out",
+    "registration": "Sign Up",
+    "main": "Go to Main Page",
+    "schema": "Open Schema",
+    "variables": "Variables",
+    "headers": "Headers",
+    "runQuery": "Run query"
+  },
+  "notification": {
+    "loadingMessage": "Please wait until data is uploaded",
+    "loadingTitle": "Uploading data to the server"
+  },
+  "redirect": {
+    "registrationQuestion": "Already have an account?",
+    "loginQuestion": "Do not have an account yet?"
+  },
+  "label": {
+    "email": "Email",
+    "password": "Password"
+  },
+  "password": {
+    "placeholder": "Your password"
+  },
+  "error": {
+    "title": "Error"
+  },
+  "formError": {
+    "start": "At least ",
+    "invalidEmail": "Invalid email",
+    "chars": "8 chars",
+    "letter": "one letter",
+    "digit": "one digit",
+    "specialChar": "one special character"
+  },
+  "graphiQlTabs": {
+    "editor": "Editor",
+    "schema": "Schema"
+  },
+  "errors": {
+    "default": "Something went wrong...",
+    "request": "Something went wrong, check your query."
+  }
+}
