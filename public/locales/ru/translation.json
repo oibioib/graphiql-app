@@ -1,4 +1,15 @@
 {
+  "welcomePage": {
+    "title": "GraphiQL — язык запросов для API",
+    "opportunity": "GraphiQL дает возможность запрашивать именно те данные, которые вам нужны, и ничего более.",
+    "appContentTitle": "Это приложение включает в себя:",
+    "appContentItem1": "Рабочий редактор, позволяющий редактировать запрос",
+    "appContentItem2": "Раздел переменных",
+    "appContentItem3": "Раздел заголовков",
+    "appContentItem4": "Раздел ответа",
+    "appContentItem5": "Проводник рабочей документации",
+    "team": "Наша команда"
+  },
   "pageTitle": {
     "login": "Вход",
     "registration": "Регистрация"

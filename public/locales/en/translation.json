@@ -1,4 +1,15 @@
 {
+  "welcomePage": {
+    "title": "GraphiQL is a query language for API",
+    "opportunity": "GraphiQL gives the power to ask for exactly data what you need and nothing more.",
+    "appContentTitle": "This App includes:",
+    "appContentItem1": "Working editor allowing to edit the query",
+    "appContentItem2": "Variables section",
+    "appContentItem3": "Headers section",
+    "appContentItem4": "Response section",
+    "appContentItem5": "Working documentation explorer",
+    "team": "Our team"
+  },
   "pageTitle": {
     "login": "Sign In",
     "registration": "Sign Up"
