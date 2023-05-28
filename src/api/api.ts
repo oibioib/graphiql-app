@@ -20,7 +20,13 @@ const queryData = async ({ query, variables }: QueryDataParams) => {
 
     return response.data;
   } catch (error) {
-    return handleAxiosError(error);
+    const data = handleAxiosError(error);
+
+    if (data) {
+      return data;
+    } else {
+      throw new Error('Something went wrong, check your request');
+    }
   }
 };
 

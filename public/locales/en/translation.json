@@ -53,5 +53,8 @@
   "graphiQlTabs": {
     "editor": "Editor",
     "schema": "Schema"
+  },
+  "errors": {
+    "request": "Something went wrong, check your query"
   }
 }

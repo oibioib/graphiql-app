@@ -11,7 +11,7 @@ const AboutUs = () => {
 
   return (
     <Container className={classes.container}>
-      <Title order={3} align="center">
+      <Title order={3} className={classes.title}>
         {t('welcomePage.team')}
       </Title>
       <Group className={classes.container}>
@@ -26,14 +26,6 @@ const AboutUs = () => {
               <Image src={photo} className={classes.photo} />
             </Anchor>
             <Text className={classes.name}>{member}</Text>
-            <Anchor
-              href={`https://github.com/${github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.github}
-            >
-              {github}
-            </Anchor>
           </Stack>
         ))}
       </Group>
