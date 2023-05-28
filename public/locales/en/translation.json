@@ -5,9 +5,8 @@
     "appContentTitle": "This App includes:",
     "appContentItem1": "Working editor allowing to edit the query",
     "appContentItem2": "Variables section",
-    "appContentItem3": "Headers section",
-    "appContentItem4": "Response section",
-    "appContentItem5": "Working documentation explorer",
+    "appContentItem3": "Response section",
+    "appContentItem4": "Working documentation explorer",
     "team": "Our team"
   },
   "errorPage": {

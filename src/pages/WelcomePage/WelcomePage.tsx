@@ -26,7 +26,6 @@ const WelcomePage = () => {
               <List.Item>{t('welcomePage.appContentItem2')}</List.Item>
               <List.Item>{t('welcomePage.appContentItem3')}</List.Item>
               <List.Item>{t('welcomePage.appContentItem4')}</List.Item>
-              <List.Item>{t('welcomePage.appContentItem5')}</List.Item>
             </List>
           </Center>
         </Stack>
