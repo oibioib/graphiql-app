@@ -1,7 +1,7 @@
 {
   "welcomePage": {
     "title": "GraphiQL is a playground for graphQL requests",
-    "opportunity": "GraphiQL gives the power to ask for exactly data what you need and nothing more.",
+    "opportunity": "You can request exactly the data you need and nothing more.",
     "appContentTitle": "This App includes:",
     "appContentItem1": "Working editor allowing to edit the query",
     "appContentItem2": "Variables section",
