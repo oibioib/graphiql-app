@@ -2,8 +2,8 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   container: {
-    paddingTop: 50,
-    paddingBottom: 50,
+    paddingTop: 20,
+    paddingBottom: 20,
     justifyContent: 'center',
     gap: 50,
   },
@@ -16,12 +16,12 @@ const useStyles = createStyles((theme) => ({
 
   photo: {
     display: 'block',
-    maxWidth: 220,
+    maxWidth: 100,
     borderRadius: '50%',
     overflow: 'hidden',
 
     [theme.fn.smallerThan('sm')]: {
-      maxWidth: 150,
+      maxWidth: 80,
     },
   },
 

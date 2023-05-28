@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
   header_active: {
     position: 'fixed',
     boxShadow: theme.shadows.md,
-    backgroundColor: theme.fn.lighten(theme.colors.cyan[0], 0.6),
+    backgroundColor: theme.fn.lighten(theme.colors.cyan[1], 0.6),
   },
 
   container: {
