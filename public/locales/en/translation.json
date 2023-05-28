@@ -60,6 +60,7 @@
     "schema": "Schema"
   },
   "errors": {
-    "request": "Something went wrong, check your query"
+    "default": "Something went wrong...",
+    "request": "Something went wrong, check your query."
   }
 }

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { EditorTab, Loader } from '@components';
+import { EditorTab, ErrorBoundary, Loader } from '@components';
 import { GraphSchema } from '@components';
 import { APP_SETTINGS } from '@constants';
 import { Tabs } from '@mantine/core';
@@ -22,9 +22,11 @@ const GraphQlPage = () => {
         <EditorTab />
       </Tabs.Panel>
       <Tabs.Panel value={APP_SETTINGS.EDITOR_TABS.SCHEMA} className={classes.tab}>
-        <Suspense fallback={<Loader />}>
-          <GraphSchema />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<Loader />}>
+            <GraphSchema />
+          </Suspense>
+        </ErrorBoundary>
       </Tabs.Panel>
     </Tabs>
   );
