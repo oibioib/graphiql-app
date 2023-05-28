@@ -14,7 +14,7 @@ const BaseLayout = () => {
         header={<Header />}
         footer={<Footer />}
         fixed={false}
-        classNames={{ main: classes.main }}
+        classNames={{ main: classes.main, body: classes.body }}
       >
         <Container size="xl" className={classes.container}>
           <Outlet />

@@ -5,6 +5,14 @@ const useStyles = createStyles((theme) => ({
     padding: '7px 0',
   },
 
+  body: {
+    marginTop: 80,
+
+    [theme.fn.smallerThan('xs')]: {
+      marginTop: 110,
+    },
+  },
+
   container: {
     flexGrow: 1,
     height: '100%',
