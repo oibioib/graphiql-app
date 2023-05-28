@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import queryData from '@api/api';
 import { showNotificationsError } from '@helpers';
@@ -8,11 +9,10 @@ import { useMutation } from '@tanstack/react-query';
 const useEditor = () => {
   const storeQuery = useStoreQuery((state) => state.storeQuery);
   const setStoreQuery = useStoreQuery((state) => state.setStoreQuery);
-
   const storeVariables = useStoreVariables((state) => state.storeVariables);
   const setStoreVariables = useStoreVariables((state) => state.setStoreVariables);
-
-  const { data, isLoading, isError, mutate } = useMutation({ mutationFn: queryData });
+  const { t } = useTranslation();
+  const { data, isLoading, isError, mutate, reset } = useMutation({ mutationFn: queryData });
 
   const code = useMemo(() => {
     if (typeof data === 'string') return data;
@@ -21,8 +21,11 @@ const useEditor = () => {
   }, [data]);
 
   useEffect(() => {
-    if (isError) showNotificationsError('Something went wrong');
-  }, [isError]);
+    if (isError) {
+      showNotificationsError(t('errors.request'));
+      reset();
+    }
+  });
 
   const onMutate = () => {
     mutate({

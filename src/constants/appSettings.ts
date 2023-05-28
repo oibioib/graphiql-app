@@ -28,6 +28,11 @@ export const PAGES = {
   },
 };
 
+export const LANGUAGE = {
+  EN: 'en',
+  RU: 'ru',
+};
+
 export const AUTHORS = {
   PAVEL_GITHUB: 'oibioib',
   ALEX_GITHUB: 'alextes90',
@@ -61,3 +66,4 @@ export const EDITOR_TABS = {
 };
 
 export const GITHUB_LINK = 'https://github.com/';
+export const RS_LINK = 'https://rs.school/react/';

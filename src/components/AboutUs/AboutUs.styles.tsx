@@ -14,25 +14,30 @@ const useStyles = createStyles((theme) => ({
     alignItems: 'center',
   },
 
+  title: {
+    paddingBottom: 12,
+    textAlign: 'center',
+  },
+
   photo: {
     display: 'block',
-    maxWidth: 100,
+    maxWidth: 140,
     borderRadius: '50%',
     overflow: 'hidden',
 
     [theme.fn.smallerThan('sm')]: {
-      maxWidth: 80,
+      maxWidth: 100,
     },
   },
 
   name: {
     fontWeight: 600,
-    fontSize: 22,
+    fontSize: 20,
   },
 
   github: {
     fontWeight: 600,
-    fontSize: 18,
+    fontSize: 16,
   },
 }));
 
