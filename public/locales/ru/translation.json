@@ -1,13 +1,12 @@
 {
   "welcomePage": {
-    "title": "GraphiQL — это игровая площадка для запросов graphQL",
+    "title": "GraphiQL — это песочница для запросов graphQL",
     "opportunity": "Вы можете запросить именно те данные, которые вам нужны, и ничего больше.",
     "appContentTitle": "Это приложение включает в себя:",
     "appContentItem1": "Рабочий редактор, позволяющий редактировать запрос",
     "appContentItem2": "Раздел переменных",
-    "appContentItem3": "Раздел заголовков",
-    "appContentItem4": "Раздел ответа",
-    "appContentItem5": "Проводник рабочей документации",
+    "appContentItem3": "Раздел ответа",
+    "appContentItem4": "Документацию",
     "team": "Наша команда"
   },
   "errorPage": {
