@@ -59,3 +59,5 @@ export const EDITOR_TABS = {
   EDITOR: 'editor',
   SCHEMA: 'schema',
 };
+
+export const GITHUB_LINK = 'https://github.com/';

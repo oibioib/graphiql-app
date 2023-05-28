@@ -1,15 +1,8 @@
-import { Button, createStyles } from '@mantine/core';
+import { APP_SETTINGS } from '@constants';
+import { Button } from '@mantine/core';
 import { IconBrandGithub } from '@tabler/icons-react';
 
-const useStyles = createStyles((theme) => ({
-  button: {
-    color: theme.colors.gray[6],
-    [':hover']: {
-      color: theme.colors[theme.primaryColor][6],
-      backgroundColor: 'transparent',
-    },
-  },
-}));
+import useStyles from './MemberTag.styles';
 
 const MemberTag = ({ gitHubProfile }: { gitHubProfile: string }) => {
   const { classes } = useStyles();
@@ -20,7 +13,7 @@ const MemberTag = ({ gitHubProfile }: { gitHubProfile: string }) => {
       compact
       component="a"
       leftIcon={<IconBrandGithub size={16} />}
-      href={`https://github.com/${gitHubProfile}`}
+      href={`${APP_SETTINGS.GITHUB_LINK}${gitHubProfile}`}
       target="_blank"
       rel="noopener noreferrer"
       className={classes.button}
