@@ -10,6 +10,11 @@
     "appContentItem5": "Working documentation explorer",
     "team": "Our team"
   },
+  "errorPage": {
+    "title": "You have found a secret place.",
+    "description": "Unfortunately, this is only a 404 page. You may have mistyped the address, or the page has been moved to another URL.",
+    "goBack": "Back to home page"
+  },
   "pageTitle": {
     "login": "Sign In",
     "registration": "Sign Up"

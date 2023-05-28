@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import { Button, Center, Container, Group, Stack, Text, Title } from '@mantine/core';
@@ -7,20 +8,20 @@ import useStyles from './ErrorPage.styles';
 
 const ErrorPage = () => {
   const { classes } = useStyles();
+  const { t } = useTranslation();
 
   return (
     <Container h="100vh">
       <Center h="100%">
         <Stack className={classes.container}>
           <div className={classes.label}>404</div>
-          <Title className={classes.title}>You have found a secret place.</Title>
+          <Title className={classes.title}>{t('errorPage.title')}</Title>
           <Text color="dimmed" size="lg" align="center" className={classes.description}>
-            Unfortunately, this is only a 404 page. You may have mistyped the address, or the page
-            has been moved to another URL.
+            {t('errorPage.description')}
           </Text>
           <Group position="center">
             <Button component={Link} to="/" size="md" leftIcon={<IconArrowLeft />}>
-              Back to home page
+              {t('errorPage.goBack')}
             </Button>
           </Group>
         </Stack>
